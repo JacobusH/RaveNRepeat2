@@ -27,29 +27,31 @@ import { SignupFilterPipe } from 'app/filters/signup-filter.pipe';
 import { ReadFilterPipe } from 'app/filters/read-filter.pipe';
 
 // Services
-// import { AlertMultiService, AlertService, 
-//   AuthService, GalleryService, 
-//   LiveChatService, UploadService, 
-//   UserService, VisualizerService } from 'app/services/_index';
+import { AlertMultiService, AlertService, 
+  AuthService, GalleryService, 
+  LiveChatService, UploadService, 
+  UserService, VisualizerService } from 'app/services/_index';
 
 // Pages
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from 'app/pages/page-not-found/page-not-found.component';
 import { PlaygroundComponent } from 'app/pages/playground/playground.component';
+import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
 
 
 // Initialize Firebase
 var firebaseConfig = {
-  apiKey: "AIzaSyBfuu59n7nSf6956xaKwFBniRM2V3-SoG0",
-  authDomain: "ravenrepeat-600f4.firebaseapp.com",
-  databaseURL: "https://ravenrepeat-600f4.firebaseio.com",
-  projectId: "ravenrepeat-600f4",
-  storageBucket: "ravenrepeat-600f4.appspot.com",
-  messagingSenderId: "278606493546"
+  apiKey: "AIzaSyC2Mn3EzXPCHZzhoSPUGmnhkqR_tf_YbVo",
+    authDomain: "ravenrepeat2.firebaseapp.com",
+    databaseURL: "https://ravenrepeat2.firebaseio.com",
+    projectId: "ravenrepeat2",
+    storageBucket: "ravenrepeat2.appspot.com",
+    messagingSenderId: "768701302969"
 };
 
 const routes: Routes = [
-  // { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent },
   // { path: 'admin', canActivate: [AdminGuard], component: AdministrationComponent, children: [
   //   { path: "messages", component: AdminContactMessagesComponent},
   //   { path: "chat", component: LiveChatManagerComponent},
@@ -72,7 +74,7 @@ const routes: Routes = [
   // { path: 'learntoplay', component: LearntoplayComponent },
   // { path: 'learntoplay/:id', component: LearntoplayComponent },
   { path: 'playground', component: PlaygroundComponent },
-  // { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   // { path: 'profile', component: ProfileComponent },
   // { path: 'resources', component: ResourcesComponent },
   // { path: 'register', component: RegisterComponent },
@@ -98,7 +100,11 @@ const routes: Routes = [
     AppComponent,
     ImageFilterPipe,
     SignupFilterPipe,
-    ReadFilterPipe
+    ReadFilterPipe,
+    LoginComponent,
+    PlaygroundComponent,
+    PageNotFoundComponent,
+    HomeComponent
   ],
   imports: [
     AlertModule.forRoot(),
@@ -113,16 +119,16 @@ const routes: Routes = [
     MatSelectModule, MatInputModule, 
     MatIconModule,
     NgxGraphModule,
-    RouterModule
+    RouterModule.forRoot(routes),
   ],
   providers: [
     AngularFireAuth,
     AdminGuard,
     AuthGuard,
-    // AlertMultiService, AlertService, 
-    // AuthService, GalleryService, 
-    // LiveChatService, UploadService, 
-    // UserService, VisualizerService
+    AlertMultiService, AlertService, 
+    AuthService, GalleryService, 
+    LiveChatService, UploadService, 
+    UserService, VisualizerService
   ],
   bootstrap: [AppComponent]
 })
