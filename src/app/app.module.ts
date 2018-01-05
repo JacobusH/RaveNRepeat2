@@ -38,6 +38,7 @@ import { PageNotFoundComponent } from 'app/pages/page-not-found/page-not-found.c
 import { PlaygroundComponent } from 'app/pages/playground/playground.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 // Initialize Firebase
@@ -104,7 +105,8 @@ const routes: Routes = [
     LoginComponent,
     PlaygroundComponent,
     PageNotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
     AlertModule.forRoot(),
