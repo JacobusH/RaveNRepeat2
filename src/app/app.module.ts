@@ -16,6 +16,10 @@ import { MatButtonModule, MatCheckboxModule,
 } from '@angular/material';
 import { NgxGraphModule } from '@swimlane/ngx-graph'
 import { Routes, RouterModule } from '@angular/router';
+import {VgCoreModule} from 'videogular2/core';
+import {VgControlsModule} from 'videogular2/controls';
+import {VgOverlayPlayModule} from 'videogular2/overlay-play';
+import {VgBufferingModule} from 'videogular2/buffering';
 
 // Guards
 import { AuthGuard } from 'app/guards/auth.guard';
@@ -39,6 +43,8 @@ import { PlaygroundComponent } from 'app/pages/playground/playground.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { VideoPlaylistComponent } from './components/video-playlist/video-playlist.component';
+import { VideoItemComponent } from './components/video-item/video-item.component';
 
 
 // Initialize Firebase
@@ -106,7 +112,9 @@ const routes: Routes = [
     PlaygroundComponent,
     PageNotFoundComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    VideoPlaylistComponent,
+    VideoItemComponent
   ],
   imports: [
     AlertModule.forRoot(),
@@ -122,6 +130,10 @@ const routes: Routes = [
     MatIconModule,
     NgxGraphModule,
     RouterModule.forRoot(routes),
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   providers: [
     AngularFireAuth,
