@@ -17,9 +17,7 @@ export class VideoItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.cueList = new TextTrackCueList() {
-      new TextTrackCue(1, 2, 'text')
-     };
+    
   }
 
   onPlayerReady(vgApi:VgAPI) {
