@@ -8,10 +8,10 @@ import { VgAPI } from 'videogular2/core';
   encapsulation: ViewEncapsulation.Emulated
 })
 export class VideoItemComponent implements OnInit {
-  preload:string = 'auto';
-  vgApi:VgAPI;
-  cueList:TextTrackCueList;
+  player: YT.Player;
+  private id: string = 'qDuKsiwS5xw';
 
+	
   constructor() { 
     
   }
@@ -20,15 +20,13 @@ export class VideoItemComponent implements OnInit {
     
   }
 
-  onPlayerReady(vgApi:VgAPI) {
-    this.vgApi = vgApi;
-
-    this.vgApi.getDefaultMedia().subscriptions.ended.subscribe(
-        () => {
-            // Set the video to the beginning
-            this.vgApi.getDefaultMedia().currentTime = 0;
-        }
-    );
+  savePlayer (player) {
+    this.player = player;
+    console.log('player instance', player)
+  }
+  
+  onStateChange(event){
+    console.log('player state', event.data);
   }
 
 }
