@@ -1,5 +1,3 @@
-import { AngularFirestoreCollection } from "angularfire2/firestore";
-
 // export class User {
 
 //     constructor(
@@ -18,17 +16,19 @@ import { AngularFirestoreCollection } from "angularfire2/firestore";
 //     ) {}
 // }
 
-export interface User {
-  authID: string,
-  authMethod: string,
-  authDisplayName: string,
-  authPhotoUrl: string,
-  key: string,
-  name: string,
-  email: string,
-  password: string,
-  roles: Array<string>,
-  isActive: boolean,
-  createdAt: Date,
-  updatedAt: Date
+export interface TrackOptions {
+  starRating: number,
+  notes: string
 }
+
+export interface Track {
+    id: string,
+    title: string,
+    artists: string,
+    genre: string,
+    key: string,
+    labels: string,
+    remixers: string,
+    releaseDate: Date
+    trackOptions: TrackOptions,
+  }

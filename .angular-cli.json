@@ -20,11 +20,10 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "../node_modules/videogular2/fonts/videogular.css"
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
       "scripts": [],
-      "environmentSource": "environments/environment.ts",
+      "environmentSource": "environments/environment.ts", 
       "environments": {
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"

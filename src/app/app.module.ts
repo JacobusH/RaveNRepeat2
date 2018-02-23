@@ -1,5 +1,5 @@
 // Modules
-import { AlertModule } from 'ngx-bootstrap';
+// import { AlertModule } from 'ngx-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -20,6 +20,7 @@ import {VgCoreModule} from 'videogular2/core';
 import {VgControlsModule} from 'videogular2/controls';
 import {VgOverlayPlayModule} from 'videogular2/overlay-play';
 import {VgBufferingModule} from 'videogular2/buffering';
+import { YoutubePlayerModule } from 'ngx-youtube-player';
 
 // Guards
 import { AuthGuard } from 'app/guards/auth.guard';
@@ -33,7 +34,7 @@ import { ReadFilterPipe } from 'app/filters/read-filter.pipe';
 // Services
 import { AlertMultiService, AlertService, 
   AuthService, GalleryService, 
-  LiveChatService, UploadService, 
+  LiveChatService, TrackService, UploadService, 
   UserService, VisualizerService } from 'app/services/_index';
 
 // Pages
@@ -45,16 +46,28 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { VideoPlaylistComponent } from './components/video-playlist/video-playlist.component';
 import { VideoItemComponent } from './components/video-item/video-item.component';
+import { ViewArtistComponent } from './components/view-artist/view-artist.component';
+import { ViewTrackComponent } from './components/view-track/view-track.component';
+import { ViewTracklistComponent } from './components/view-tracklist/view-tracklist.component';
 
 
 // Initialize Firebase
+// var firebaseConfig = {
+//   apiKey: "AIzaSyC2Mn3EzXPCHZzhoSPUGmnhkqR_tf_YbVo",
+//     authDomain: "ravenrepeat2.firebaseapp.com",
+//     databaseURL: "https://ravenrepeat2.firebaseio.com",
+//     projectId: "ravenrepeat2",
+//     storageBucket: "ravenrepeat2.appspot.com",
+//     messagingSenderId: "768701302969"
+// };
+
 var firebaseConfig = {
-  apiKey: "AIzaSyC2Mn3EzXPCHZzhoSPUGmnhkqR_tf_YbVo",
-    authDomain: "ravenrepeat2.firebaseapp.com",
-    databaseURL: "https://ravenrepeat2.firebaseio.com",
-    projectId: "ravenrepeat2",
-    storageBucket: "ravenrepeat2.appspot.com",
-    messagingSenderId: "768701302969"
+  apiKey: "AIzaSyDvq-x-CLBHIDaIQcVXz6BKtMFEdgsLt8o",
+    authDomain: "crawl-63a5c.firebaseapp.com",
+    databaseURL: "https://crawl-63a5c.firebaseio.com",
+    projectId: "crawl-63a5c",
+    storageBucket: "crawl-63a5c.appspot.com",
+    messagingSenderId: "604192062922"
 };
 
 const routes: Routes = [
@@ -114,10 +127,13 @@ const routes: Routes = [
     HomeComponent,
     ProfileComponent,
     VideoPlaylistComponent,
-    VideoItemComponent
-  ],
+    VideoItemComponent,
+    ViewArtistComponent,
+    ViewTrackComponent,
+    ViewTracklistComponent
+  ], 
   imports: [
-    AlertModule.forRoot(),
+    // AlertModule.forRoot(),
     AngularFireModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(firebaseConfig),
@@ -133,14 +149,15 @@ const routes: Routes = [
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,
-    VgBufferingModule
+    VgBufferingModule,
+    YoutubePlayerModule
   ],
   providers: [
     AngularFireAuth,
     AdminGuard,
     AuthGuard,
     AlertMultiService, AlertService, 
-    AuthService, GalleryService, 
+    AuthService, GalleryService, TrackService,
     LiveChatService, UploadService, 
     UserService, VisualizerService
   ],

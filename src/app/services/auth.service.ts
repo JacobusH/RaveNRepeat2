@@ -1,5 +1,5 @@
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -27,7 +27,7 @@ export class AuthService {
        this.user = this.afAuth.authState
        .switchMap(user => {
          if (user) {
-           return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
+           return this.afs.doc<User>(`!Users/${user.uid}`).valueChanges()
           //  return this.userService.users.doc(user.uid).valueChanges()
          } else {
            return Observable.of(null)
@@ -61,7 +61,7 @@ export class AuthService {
         console.log('login error: ' + err);
       })
     }
-
+ 
     updateUserData(userAuthCreds, provider) {
       const data: User = {
         authID: userAuthCreds.uid,
@@ -72,13 +72,13 @@ export class AuthService {
         name: userAuthCreds.displayName,
         email: userAuthCreds.email,
         password: '',
-        roles: ['student'],
-        isActive: true,
+        roles: ['user'], 
+        isActive: true, 
         createdAt: new Date(),
         updatedAt: new Date()
-      }
+      } 
 
-      const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${userAuthCreds.uid}`);
+      const userRef: AngularFirestoreDocument<any> = this.afs.doc(`!Users/${userAuthCreds.uid}`);
       userRef.snapshotChanges().map(action => action.payload.exists)
         .subscribe(exists => exists 
           ? console.log('user exists')//userRef.update(data)

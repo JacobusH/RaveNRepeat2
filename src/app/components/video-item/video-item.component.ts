@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { VgAPI } from 'videogular2/core';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+
 
 @Component({
   selector: 'app-video-item',
@@ -8,12 +8,13 @@ import { VgAPI } from 'videogular2/core';
   encapsulation: ViewEncapsulation.Emulated
 })
 export class VideoItemComponent implements OnInit {
-  player: YT.Player;
-  private id: string = 'qDuKsiwS5xw';
+  @Input('videoId') videoId:string; 
+  @Input('title') title:string;
+  @Input('caption') caption:string;
+  @Input('smallTiles') smallTiles:boolean;
+  // player: YT.Player;
 
-	
   constructor() { 
-    
   }
 
   ngOnInit() {
@@ -21,7 +22,7 @@ export class VideoItemComponent implements OnInit {
   }
 
   savePlayer (player) {
-    this.player = player;
+    // this.player = player; 
     console.log('player instance', player)
   }
   
@@ -29,4 +30,5 @@ export class VideoItemComponent implements OnInit {
     console.log('player state', event.data);
   }
 
-}
+
+} 
