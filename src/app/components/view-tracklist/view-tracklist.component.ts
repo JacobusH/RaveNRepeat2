@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-view-tracklist',
   templateUrl: './view-tracklist.component.html',
-  styleUrls: ['./view-tracklist.component.css'],
+  styleUrls: ['./view-tracklist.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
 export class ViewTracklistComponent implements OnInit {

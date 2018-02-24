@@ -10,7 +10,7 @@ export interface IMedia {
 @Component({
   selector: 'app-video-playlist',
   templateUrl: './video-playlist.component.html',
-  styleUrls: ['./video-playlist.component.css'],
+  styleUrls: ['./video-playlist.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
 export class VideoPlaylistComponent implements OnInit {

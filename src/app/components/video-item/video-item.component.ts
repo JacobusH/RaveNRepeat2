@@ -4,7 +4,7 @@ import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 @Component({
   selector: 'app-video-item',
   templateUrl: './video-item.component.html',
-  styleUrls: ['./video-item.component.css'],
+  styleUrls: ['./video-item.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
 export class VideoItemComponent implements OnInit {

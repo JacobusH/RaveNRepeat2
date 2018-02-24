@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-view-track',
   templateUrl: './view-track.component.html',
-  styleUrls: ['./view-track.component.css'],
+  styleUrls: ['./view-track.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
 export class ViewTrackComponent implements OnInit {

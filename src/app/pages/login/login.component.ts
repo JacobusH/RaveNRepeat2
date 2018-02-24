@@ -11,7 +11,7 @@ import 'rxjs/add/operator/switchMap'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
 export class LoginComponent implements OnInit {

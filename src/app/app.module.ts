@@ -6,7 +6,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { BrowserModule } from '@angular/platform-browser';
 import { ContextMenuModule } from 'ngx-contextmenu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatCheckboxModule, 
   MatDialogModule, MatMenuModule, 
@@ -14,6 +14,7 @@ import { MatButtonModule, MatCheckboxModule,
   MatSelectModule, MatInputModule, 
   MatIconModule, MatIconRegistry 
 } from '@angular/material';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgxGraphModule } from '@swimlane/ngx-graph'
 import { Routes, RouterModule } from '@angular/router';
 import {VgCoreModule} from 'videogular2/core';
@@ -49,6 +50,8 @@ import { VideoItemComponent } from './components/video-item/video-item.component
 import { ViewArtistComponent } from './components/view-artist/view-artist.component';
 import { ViewTrackComponent } from './components/view-track/view-track.component';
 import { ViewTracklistComponent } from './components/view-tracklist/view-tracklist.component';
+import { RatingComponent } from './components/rating/rating.component';
+import { HeaderComponent } from './components/shared/header/header.component';
 
 
 // Initialize Firebase
@@ -130,7 +133,9 @@ const routes: Routes = [
     VideoItemComponent,
     ViewArtistComponent,
     ViewTrackComponent,
-    ViewTracklistComponent
+    ViewTracklistComponent,
+    RatingComponent,
+    HeaderComponent
   ], 
   imports: [
     // AlertModule.forRoot(),
@@ -144,6 +149,7 @@ const routes: Routes = [
     MatFormFieldModule, MatSidenavModule, 
     MatSelectModule, MatInputModule, 
     MatIconModule,
+    NgbModule.forRoot(),
     NgxGraphModule,
     RouterModule.forRoot(routes),
     VgCoreModule,
@@ -151,6 +157,9 @@ const routes: Routes = [
     VgOverlayPlayModule,
     VgBufferingModule,
     YoutubePlayerModule
+  ],
+  schemas: [
+    NO_ERRORS_SCHEMA
   ],
   providers: [
     AngularFireAuth,
