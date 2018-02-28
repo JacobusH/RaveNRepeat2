@@ -1,5 +1,5 @@
 // Modules
-// import { AlertModule } from 'ngx-bootstrap';
+import { AlertModule, BsDropdownModule } from 'ngx-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -138,11 +138,12 @@ const routes: Routes = [
     HeaderComponent
   ], 
   imports: [
-    // AlertModule.forRoot(),
+    AlertModule.forRoot(),
     AngularFireModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(firebaseConfig),
     BrowserModule,
+    BsDropdownModule.forRoot(),
     ContextMenuModule,
     MatButtonModule, MatCheckboxModule, 
     MatDialogModule, MatMenuModule, 

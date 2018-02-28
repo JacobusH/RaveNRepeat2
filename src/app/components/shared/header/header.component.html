@@ -1,1 +1,97 @@
-  
+  <!-- <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+      <div class='left'>Left</div>
+      <div class='middle'><img src='/assets/images/RnR.png' /> </div>
+      <div class='right'>Right</div>
+  </nav> -->
+
+<!-- FLEXBOX NAV -->
+<header class="site-header">
+<a routerLink="/home"><img src='/assets/images/RnR.png' /></a>
+<nav class="site-nav">
+  <ul>
+    <li class="active"><a routerLink="/login">Home</a></li>
+    <li class="active"><a routerLink="/login">Top</a></li>
+    <li class="active"><a routerLink="/login">New</a></li>
+    <li class="active"><a routerLink="/login">Rising</a></li>
+  </ul>
+</nav>
+<div class="actions">
+  <li *ngIf="!isLoggedIn; else showProfile_content"><a routerLink="/login">Login</a></li>
+</div>
+</header>
+
+
+<!-- Full Size Nav -->
+<!-- <div id="header-bar" class="hidden-sm hidden-xs">
+    <div class="FL"><a routerLink="/login">Top</a></div>
+    <div class="FL"><a routerLink="/login">New</a></div>
+    <div class="FL"><a routerLink="/login">Rising</a></div>
+    <div class="FR"><a routerLink="/login">Bug</a></div>
+    <div class="FR"><a routerLink="/login">Roadmap</a></div>
+    <div class="FR" *ngIf="!isLoggedIn; else showProfile_content"><a routerLink="/login">Login</a></div>	
+</div> -->
+
+<!-- Mobile Nav -->
+<!-- <nav class="navbar navbar-default navbar-static-top header-bar hidden-md hidden-lg">
+<div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" (click)="toggleState()">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    </button>
+</div>
+    <div class="collapse navbar-collapse" [ngClass]="{ 'in': isIn }">
+    <ul class="nav navbar-nav" *ngIf="isIn">
+    <li *ngIf="isLoggedIn"><a routerLink="/admin" (click)="toggleState()">Administration</a></li>
+    <li *ngIf="!isLoggedIn; else showProfileList_content"><a routerLink="/login">Login</a></li>
+    <li><a routerLink="/login">Bug</a></li>
+    <li><a routerLink="/login">Roadmap</a></li>
+    </ul>
+</div>
+<div class="cleared"></div>
+<div class="cleared"></div>
+</nav> -->
+       
+<!-- TEMPLATES -->
+<ng-template #showProfileList_content>
+<li class="dropdown">
+  <a class="dropdown-toggle" data-toggle="dropdown" routerLink="/profile">Profile</a>
+  <ul class="dropdown-menu">
+    <li *ngIf="isLoggedIn"><a routerLink="/admin" (click)="toggleState()">Administration</a></li> 
+    <li><a routerLink="/profile" (click)="toggleState()">View Profile</a></li>
+    <li><a routerLink="/" (click)="logout(); toggleState()" >Logout</a></li>
+  </ul>
+</li>
+</ng-template>
+
+<ng-template #showProfile_content>
+<!-- <div class="FR dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" routerLink="/profile">Profile
+    <span class="caret-remade"></span></a>
+    <ul class="dropdown-menu">
+    <li *ngIf="isLoggedIn"><a routerLink="/admin" (click)="toggleState()">Administration</a></li> 
+    <li><a routerLink="/profile" (click)="toggleState()">View Profile</a></li>
+    <li><a routerLink="/" (click)="logout(); toggleState()" >Logout</a></li>
+    </ul>
+</div> -->
+<div class="btn-group" dropdown>
+  <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+    Profile
+  </button>
+  <ul *dropdownMenu class="dropdown-menu" role="menu">
+    <li role="menuitem" *ngIf="isLoggedIn"><a routerLink="/admin" (click)="toggleState()">Administration</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+    <li class="divider dropdown-divider"></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+    </li>
+  </ul>
+</div>
+</ng-template>
+
+<ng-template #showProfile_mobile_content>
+<li *ngIf="isLoggedIn"><a routerLink="/admin" (click)="toggleState()">Administration</a></li> 
+<li class="dropdown"><a routerLink="/profile" (click)="toggleState()">Profile</a></li>
+<li><a routerLink="/" (click)="logout(); toggleState();">Logout</a></li>
+</ng-template>
