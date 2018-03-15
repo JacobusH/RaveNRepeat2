@@ -1,48 +1,7 @@
-// .site-header {
-//   background: #0D1313;
-//   color: white;
-//   display: flex;
-//   align-items: center;
-// }
-
-// .logo {
-//   display:flex;
-//   justify-content: center;
-//   margin:auto;
-// }
-
-// .site-nav {
-//   ul {
-//     list-style: none;
-//     display: flex;
-//     margin: 0;
-//     padding: 0;
-//   }
-//   a {
-//     font-family: proxima-nova;
-//     font-weight: 700;
-//     font-style: normal;
-//     text-transform: uppercase;
-//     text-decoration: none;
-//     padding: 20px;
-//     display: inline-block;
-//   }
-//   .active {
-//     a {
-//       font-weight: bold;
-//       color: #62DEBE;
-//       background: darken(#62DEBE, 40%);
-//     }
-//   }
-// }
-
-  
-// .actions {
-//     margin-left: auto;
-//     display: flex;
-//     align-items: center;
-//     margin-right: 10px;
-// }
+.fa {
+  color:white;
+  font-size:22px;
+}
 
 header {
   background: #0D1313;
@@ -58,9 +17,10 @@ header {
       text-transform: uppercase;
       text-decoration: none;
       padding: 0px 10px;
-      color: #62DEBE;
-      // background: darken(#62DEBE, 40%);
-      // display: inline-block;
+
+      > a {
+        margin: 0px 15px;
+      }
     }
 
     div.left {
@@ -87,20 +47,15 @@ header {
       display:flex;
       align-items: center;
       justify-content: flex-start;
+
+      button {
+        border-radius: 15px;
+        color:white;
+        background:black;
+      }
     }
   }
 }
-
-// font-family: proxima-nova;
-// font-weight: 700;
-// font-style: normal;
-// text-transform: uppercase;
-// text-decoration: none;
-// padding: 20px;
-// color: #62DEBE;
-// background: darken(#62DEBE, 40%);
-// // display: inline-block;
-
 
   
 @media screen and (min-device-width: 1200px) /* Desktop */ {

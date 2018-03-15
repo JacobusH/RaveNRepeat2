@@ -17,18 +17,18 @@
 <header>
   <nav>
     <div class="left">
-      <div><a routerLink="/login">Home</a></div>
-      <div><a routerLink="/login">Top</a></div>
-      <div><a routerLink="/login">New</a></div>
-      <div><a routerLink="/login">Rising</a></div>
+      <div><a routerLink="/login"><i class="fa fa-home" aria-hidden="true"></i></a></div>
+      <div><a routerLink="/login"><i class="fa fa-fire" aria-hidden="true"></i></a></div>
+      <div><a routerLink="/login"><i class="fa fa-edit" aria-hidden="true"></i></a></div>
+      <div><a routerLink="/login"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a></div>
     </div>
     <div class="center">
       <div class="logo"><img src='/assets/images/RnR.png' /></div>
     </div>
     <div class="right">
-        <div *ngIf="!isLoggedIn; else showProfile_content"><a routerLink="/login">Login</a></div>
-        <div><a routerLink="/login">Bug</a></div>
-        <div><a routerLink="/login">Roadmap</a></div>
+        <div *ngIf="!isLoggedIn; else showProfile_content"><a routerLink="/login"><i class="fa fa-user" aria-hidden="true"></i></a></div>
+        <div><a routerLink="/login"><i class="fa fa-bug" aria-hidden="true"></i></a></div>
+        <div><a routerLink="/login"><i class="fa fa-road" aria-hidden="true"></i></a></div>
     </div>
   </nav>
 </header>
@@ -47,8 +47,8 @@
 
 <ng-template #showProfile_content>
 <div class="btn-group" dropdown>
-  <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
-    Profile
+  <button dropdownToggle type="button">
+    <i class="fa fa-user" aria-hidden="true"> </i>
   </button>
   <ul *dropdownMenu class="dropdown-menu" role="menu">
     <li role="menuitem" *ngIf="isLoggedIn"><a routerLink="/admin" (click)="toggleState()">Administration</a></li>

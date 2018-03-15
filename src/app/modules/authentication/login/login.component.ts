@@ -4,7 +4,8 @@ import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection 
 import { Observable } from 'rxjs/Observable';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from 'app/models/_index';
-import { UserService, AlertMultiService, AlertService, AuthService } from 'app/services/_index';
+import { UserService, AlertMultiService, AlertService } from 'app/services/_index';
+import { AuthService } from 'app/modules/authentication/auth.service';
 import * as firebase from 'firebase/app';
 import 'rxjs/add/operator/switchMap'
 

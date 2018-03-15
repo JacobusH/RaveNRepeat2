@@ -1,9 +1,12 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { AuthService, UserService } from 'app/services/_index';
+import { Component, OnInit, ViewEncapsulation, HostListener, Inject } from '@angular/core';
+import { UserService } from 'app/services/_index';
+import { AuthService } from 'app/modules/authentication/auth.service';
 import { Observable } from 'rxjs/Observable';
 import { User } from 'app/models/user.model';
 import { isDefaultChangeDetectionStrategy } from '@angular/core/src/change_detection/constants';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PageEvent } from '@angular/material';
+import { DOCUMENT } from '@angular/platform-browser';
 // import * as _ from 'lodash';
 
 @Component({
@@ -24,6 +27,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private authService: AuthService, private userService: UserService, private route: Router) { 
     this.user = this.authService.user; // not logged in = null
+    authService.getLoggedInName.subscribe(name => this.isLoggedIn = true);
     if(this.user) {
       this.isLoggedIn = true;
       this.user.subscribe(u => {
@@ -70,6 +74,17 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+  }
+
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (number > 100) {
+      console.log('You are 100px from the top to bottom');
+    } else if (number > 500) {
+        console.log('You are 500px from the top to bottom');
+    }
+
   }
 
 }

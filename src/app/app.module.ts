@@ -1,4 +1,6 @@
 // Modules
+import { AuthenticationModule } from './modules/authentication/authentication.module';
+import { UserProfileModule } from './modules/user-profile/user-profile.module';
 import { AlertModule, BsDropdownModule } from 'ngx-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -23,6 +25,9 @@ import {VgOverlayPlayModule} from 'videogular2/overlay-play';
 import {VgBufferingModule} from 'videogular2/buffering';
 import { YoutubePlayerModule } from 'ngx-youtube-player';
 
+// Routing
+import { routing } from './app.routing';
+
 // Guards
 import { AuthGuard } from 'app/guards/auth.guard';
 import { AdminGuard } from 'app/guards/admin.guard';
@@ -33,8 +38,7 @@ import { SignupFilterPipe } from 'app/filters/signup-filter.pipe';
 import { ReadFilterPipe } from 'app/filters/read-filter.pipe';
 
 // Services
-import { AlertMultiService, AlertService, 
-  AuthService, GalleryService, 
+import { AlertMultiService, AlertService,  GalleryService, 
   LiveChatService, TrackService, UploadService, 
   UserService, VisualizerService } from 'app/services/_index';
 
@@ -42,9 +46,7 @@ import { AlertMultiService, AlertService,
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from 'app/pages/page-not-found/page-not-found.component';
 import { PlaygroundComponent } from 'app/pages/playground/playground.component';
-import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
-import { ProfileComponent } from './pages/profile/profile.component';
 import { VideoPlaylistComponent } from './components/video-playlist/video-playlist.component';
 import { VideoItemComponent } from './components/video-item/video-item.component';
 import { ViewArtistComponent } from './components/view-artist/view-artist.component';
@@ -73,50 +75,50 @@ var firebaseConfig = {
     messagingSenderId: "604192062922"
 };
 
-const routes: Routes = [
-  { path: '', component: HomeComponent },
-  // { path: 'admin', canActivate: [AdminGuard], component: AdministrationComponent, children: [
-  //   { path: "messages", component: AdminContactMessagesComponent},
-  //   { path: "chat", component: LiveChatManagerComponent},
-  //   { path: "faq", component: AdminFaqComponent},
-  //   { path: "media", component: AdminMediaComponent},
-  //   { path: "resources", component: AdminResourcesComponent},
-  //   { path: "signups", component: AdminSignUpsComponent},
-  //   { path: "testimonials", component: AdminTestimonialsComponent},
-  //   { path: "teachers", component: AdminTeachersComponent},
-  //   { path: "users", component: AdminUsersComponent},
-  // ] },
-  // { path: 'about', component: AboutComponent },
-  // { path: 'announcements', component: AnnouncementsComponent },
-  // { path: 'contact', component: ContactComponent },
-  // { path: 'faq', component: FaqComponent },
-  // { path: 'gallery', component: GalleryComponent },
-  // { path: 'gallery/image/:id', component: ImageGalleryDetailComponent },
-  // { path: 'home', component: HomeComponent },
-  // { path: 'home/:id', component: HomeComponent },
-  // { path: 'learntoplay', component: LearntoplayComponent },
-  // { path: 'learntoplay/:id', component: LearntoplayComponent },
-  { path: 'playground', component: PlaygroundComponent },
-  { path: 'login', component: LoginComponent },
-  // { path: 'profile', component: ProfileComponent },
-  // { path: 'resources', component: ResourcesComponent },
-  // { path: 'register', component: RegisterComponent },
-  // { path: 'teachers', component: TeachersComponent },
-  // { path: 'teachers/:id', component: TeacherDetailComponent },
-  //   // children: [
-  //   //   { path: '', redirectTo: 'overview', pathMatch: 'full' },
-  //     // { path: 'overview', component: Overview },
-  //     // { path: 'specs', component: Specs }
-  //   // ]
-  // },
-  // { path: 'testimonials', component: TestimonialsComponent },
-  // { path: 'testing/youtube', component: YoutubeComponent },
-  // { path: 'testing/upload', component: UploadComponent },
-  // { path: 'testing/tree', component: TreeComponent },
-  // { path: 'contact/thanks', component: ThanksComponent },
-  { path: '**', component: PageNotFoundComponent }
+// const routes: Routes = [
+//   { path: '', component: HomeComponent },
+//   // { path: 'admin', canActivate: [AdminGuard], component: AdministrationComponent, children: [
+//   //   { path: "messages", component: AdminContactMessagesComponent},
+//   //   { path: "chat", component: LiveChatManagerComponent},
+//   //   { path: "faq", component: AdminFaqComponent},
+//   //   { path: "media", component: AdminMediaComponent},
+//   //   { path: "resources", component: AdminResourcesComponent},
+//   //   { path: "signups", component: AdminSignUpsComponent},
+//   //   { path: "testimonials", component: AdminTestimonialsComponent},
+//   //   { path: "teachers", component: AdminTeachersComponent},
+//   //   { path: "users", component: AdminUsersComponent},
+//   // ] },
+//   // { path: 'about', component: AboutComponent },
+//   // { path: 'announcements', component: AnnouncementsComponent },
+//   // { path: 'contact', component: ContactComponent },
+//   // { path: 'faq', component: FaqComponent },
+//   // { path: 'gallery', component: GalleryComponent },
+//   // { path: 'gallery/image/:id', component: ImageGalleryDetailComponent },
+//   // { path: 'home', component: HomeComponent },
+//   // { path: 'home/:id', component: HomeComponent },
+//   // { path: 'learntoplay', component: LearntoplayComponent },
+//   // { path: 'learntoplay/:id', component: LearntoplayComponent },
+//   { path: 'playground', component: PlaygroundComponent },
+//   { path: 'login', component: LoginComponent },
+//   // { path: 'profile', component: ProfileComponent },
+//   // { path: 'resources', component: ResourcesComponent },
+//   // { path: 'register', component: RegisterComponent },
+//   // { path: 'teachers', component: TeachersComponent },
+//   // { path: 'teachers/:id', component: TeacherDetailComponent },
+//   //   // children: [
+//   //   //   { path: '', redirectTo: 'overview', pathMatch: 'full' },
+//   //     // { path: 'overview', component: Overview },
+//   //     // { path: 'specs', component: Specs }
+//   //   // ]
+//   // },
+//   // { path: 'testimonials', component: TestimonialsComponent },
+//   // { path: 'testing/youtube', component: YoutubeComponent },
+//   // { path: 'testing/upload', component: UploadComponent },
+//   // { path: 'testing/tree', component: TreeComponent },
+//   // { path: 'contact/thanks', component: ThanksComponent },
+//   { path: '**', component: PageNotFoundComponent }
   
-];
+// ];
 
 @NgModule({
   declarations: [
@@ -124,11 +126,9 @@ const routes: Routes = [
     ImageFilterPipe,
     SignupFilterPipe,
     ReadFilterPipe,
-    LoginComponent,
     PlaygroundComponent,
     PageNotFoundComponent,
     HomeComponent,
-    ProfileComponent,
     VideoPlaylistComponent,
     VideoItemComponent,
     ViewArtistComponent,
@@ -138,11 +138,15 @@ const routes: Routes = [
     HeaderComponent
   ], 
   imports: [
+    routing,
+    AuthenticationModule,
+    UserProfileModule,
     AlertModule.forRoot(),
     AngularFireModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(firebaseConfig),
     BsDropdownModule.forRoot(),
+    BrowserModule,
     ContextMenuModule,
     MatButtonModule, MatCheckboxModule, 
     MatDialogModule, MatMenuModule, 
@@ -151,7 +155,7 @@ const routes: Routes = [
     MatIconModule,
     NgbModule.forRoot(),
     NgxGraphModule,
-    RouterModule.forRoot(routes),
+    // RouterModule.forRoot(routes),
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,
@@ -166,7 +170,7 @@ const routes: Routes = [
     AdminGuard,
     AuthGuard,
     AlertMultiService, AlertService, 
-    AuthService, GalleryService, TrackService,
+    GalleryService, TrackService,
     LiveChatService, UploadService, 
     UserService, VisualizerService
   ],

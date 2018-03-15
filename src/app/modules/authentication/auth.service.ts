@@ -1,6 +1,6 @@
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from 'app/models/user.model';
@@ -13,6 +13,7 @@ import { provideForRootGuard } from '@angular/router/src/router_module';
 
 @Injectable()
 export class AuthService {
+  @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
   user: Observable<User>;
   behUser: BehaviorSubject<User> = new BehaviorSubject(null);
   authstate: any;
@@ -80,13 +81,19 @@ export class AuthService {
 
       const userRef: AngularFirestoreDocument<any> = this.afs.doc(`!Users/${userAuthCreds.uid}`);
       userRef.snapshotChanges().map(action => action.payload.exists)
-        .subscribe(exists => exists 
-          ? console.log('user exists')//userRef.update(data)
-          : userRef.set(data))
+        .subscribe(exists => {
+          if(exists) {
+            console.log('user exists');
+            this.getLoggedInName.emit('in');
+            this.router.navigate(['/profile']);
+          } else {
+            userRef.set(data);
+          }});
     }
 
     logout() {
       this.afAuth.auth.signOut().then(() => {
+        this.getLoggedInName.emit('out');
           this.router.navigate(['/']);
       });
     }
