@@ -142,7 +142,6 @@ const routes: Routes = [
     AngularFireModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    BrowserModule,
     BsDropdownModule.forRoot(),
     ContextMenuModule,
     MatButtonModule, MatCheckboxModule, 
