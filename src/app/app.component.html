@@ -1,9 +1,9 @@
 <!-- <app-header></app-header> -->
 
 <app-header></app-header>
-<div class="app-content">
+<div class="app-content" [@routeAnimation]="prepRouteState(routerOutlet)">
   <!-- <app-rave-repeater-canvas></app-rave-repeater-canvas> -->
-  <router-outlet>
+  <router-outlet #routerOutlet="outlet">
   </router-outlet>
   <app-rave-repeater></app-rave-repeater>
 </div>

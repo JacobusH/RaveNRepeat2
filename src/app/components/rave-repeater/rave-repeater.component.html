@@ -1,3 +1,31 @@
-<svg viewBox="0 0 1000 1000">
+<!-- do these two guys animate at the same time? -->
+<div *ngFor="let image of items" class="image-container" @image>
+  <div class="image-info">
+    <h2>Title</h2>
+    <p>...</p>
+    <p>...</p>
+  </div>
+  <div class="image-preview">
+    imageee
+  </div>
+</div>
+<!-- 
+<div [@parent]="parentVal">
+    <div [@child]="childVal">
+      ...
+    </div>
+  </div>
+
+<div [@fractalAnimation]="items.length">
+  <div *ngFor="let item of items">
+    {{ item }}
+  </div>
+</div>
+
+
+<button (click)="toggle()">Toggle Fade</button>
+<svg viewBox="0 0 1000 1000"
+[@fractalAnimation]="bindingVar">
+  <svg:g app-svg-circle />
   <svg:g app-svg-line />
-</svg>
+</svg> -->

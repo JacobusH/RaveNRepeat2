@@ -33,7 +33,7 @@ export class SvgLineComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.test = tinycolor('red');
+    // this.test = tinycolor('red');
   }
 
   toggleState() {

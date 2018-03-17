@@ -1,6 +1,7 @@
 // Modules
 import { AuthenticationModule } from './modules/authentication/authentication.module';
 import { UserProfileModule } from './modules/user-profile/user-profile.module';
+import { SitePlansModule } from './modules/site-plans/site-plans.module';
 import { AlertModule, BsDropdownModule } from 'ngx-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -57,6 +58,7 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import { RaveRepeaterComponent } from './components/rave-repeater/rave-repeater.component';
 import { CanvasComponent } from './components/rave-repeater/canvas/canvas.component';
 import { SvgLineComponent } from './components/rave-repeater/svg-line/svg-line.component';
+import { SvgCircleComponent } from './components/rave-repeater/svg-circle/svg-circle.component';
 
 
 // Initialize Firebase
@@ -141,13 +143,15 @@ var firebaseConfig = {
     HeaderComponent,
     RaveRepeaterComponent,
     CanvasComponent,
-    SvgLineComponent
+    SvgLineComponent,
+    SvgCircleComponent
   ], 
   imports: [
     routing,
     AuthenticationModule,
     UserProfileModule,
-    AlertModule.forRoot(),
+    SitePlansModule,
+    // AlertModule.forRoot(),
     AngularFireModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(firebaseConfig),
