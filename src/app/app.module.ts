@@ -54,6 +54,9 @@ import { ViewTrackComponent } from './components/view-track/view-track.component
 import { ViewTracklistComponent } from './components/view-tracklist/view-tracklist.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { HeaderComponent } from './components/shared/header/header.component';
+import { RaveRepeaterComponent } from './components/rave-repeater/rave-repeater.component';
+import { CanvasComponent } from './components/rave-repeater/canvas/canvas.component';
+import { SvgLineComponent } from './components/rave-repeater/svg-line/svg-line.component';
 
 
 // Initialize Firebase
@@ -135,7 +138,10 @@ var firebaseConfig = {
     ViewTrackComponent,
     ViewTracklistComponent,
     RatingComponent,
-    HeaderComponent
+    HeaderComponent,
+    RaveRepeaterComponent,
+    CanvasComponent,
+    SvgLineComponent
   ], 
   imports: [
     routing,
@@ -147,6 +153,7 @@ var firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     BsDropdownModule.forRoot(),
     BrowserModule,
+    BrowserAnimationsModule,
     ContextMenuModule,
     MatButtonModule, MatCheckboxModule, 
     MatDialogModule, MatMenuModule, 

@@ -24,6 +24,7 @@
     "@angular/router": "^5.0.0",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0",
     "@swimlane/ngx-graph": "^4.0.2",
+    "@types/tinycolor2": "^1.4.0",
     "@types/youtube": "0.0.32",
     "angularfire2": "^5.0.0-rc.4",
     "bootstrap": "^3.3.7",
@@ -36,6 +37,7 @@
     "ngx-bootstrap": "^2.0.2",
     "ngx-contextmenu": "^3.0.2",
     "rxjs": "^5.5.5",
+    "tinycolor2": "^1.4.1",
     "videogular2": "^6.0.1",
     "zone.js": "^0.8.14"
   },
