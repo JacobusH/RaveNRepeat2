@@ -2,6 +2,7 @@
 import { AuthenticationModule } from './modules/authentication/authentication.module';
 import { UserProfileModule } from './modules/user-profile/user-profile.module';
 import { SitePlansModule } from './modules/site-plans/site-plans.module';
+import { SiteSectionsModule } from './modules/site-sections/site-sections.module';
 import { AlertModule, BsDropdownModule } from 'ngx-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -41,15 +42,15 @@ import { ReadFilterPipe } from 'app/filters/read-filter.pipe';
 // Services
 import { AlertMultiService, AlertService,  GalleryService, 
   LiveChatService, TrackService, UploadService, 
-  UserService, VisualizerService } from 'app/services/_index';
+  UserService, VisualizerService, VideoService } from 'app/services/_index';
 
 // Pages
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from 'app/pages/page-not-found/page-not-found.component';
 import { PlaygroundComponent } from 'app/pages/playground/playground.component';
 import { HomeComponent } from './pages/home/home.component';
-import { VideoPlaylistComponent } from './components/video-playlist/video-playlist.component';
-import { VideoItemComponent } from './components/video-item/video-item.component';
+import { VideoPlaylistComponent } from './components/videos/video-playlist/video-playlist.component';
+import { VideoItemComponent } from './components/videos/video-item/video-item.component';
 import { ViewArtistComponent } from './components/view-artist/view-artist.component';
 import { ViewTrackComponent } from './components/view-track/view-track.component';
 import { ViewTracklistComponent } from './components/view-tracklist/view-tracklist.component';
@@ -59,6 +60,8 @@ import { RaveRepeaterComponent } from './components/rave-repeater/rave-repeater.
 import { CanvasComponent } from './components/rave-repeater/canvas/canvas.component';
 import { SvgLineComponent } from './components/rave-repeater/svg-line/svg-line.component';
 import { SvgCircleComponent } from './components/rave-repeater/svg-circle/svg-circle.component';
+import { VideosComponent } from './components/videos/videos.component';
+
 
 
 // Initialize Firebase
@@ -144,13 +147,15 @@ var firebaseConfig = {
     RaveRepeaterComponent,
     CanvasComponent,
     SvgLineComponent,
-    SvgCircleComponent
+    SvgCircleComponent,
+    VideosComponent
   ], 
   imports: [
     routing,
     AuthenticationModule,
     UserProfileModule,
     SitePlansModule,
+    SiteSectionsModule,
     // AlertModule.forRoot(),
     AngularFireModule,
     AngularFirestoreModule,
@@ -183,7 +188,8 @@ var firebaseConfig = {
     AlertMultiService, AlertService, 
     GalleryService, TrackService,
     LiveChatService, UploadService, 
-    UserService, VisualizerService
+    UserService, VisualizerService,
+    VideoService
   ],
   bootstrap: [AppComponent]
 })

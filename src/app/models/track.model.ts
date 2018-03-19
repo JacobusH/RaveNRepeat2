@@ -29,6 +29,6 @@ export interface Track {
     key: string,
     labels: string,
     remixers: string,
-    releaseDate: Date
+    releaseDate: Date,
     trackOptions: TrackOptions,
   }

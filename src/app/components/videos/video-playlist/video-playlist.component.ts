@@ -1,5 +1,7 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { VgAPI } from 'videogular2/core';
+import { Video } from 'app/models/_index';
+import { Observable } from 'rxjs/observable'
 
 export interface IMedia {
   title: string;
@@ -14,6 +16,7 @@ export interface IMedia {
   encapsulation: ViewEncapsulation.Emulated
 })
 export class VideoPlaylistComponent implements OnInit {
+  @Input('videos') videos: Observable<Video[]>;
 
   constructor() {
   }

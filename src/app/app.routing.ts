@@ -4,25 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent,
-  data: {
-    animation: 'homePage'
-  }},
-  { path: 'home', component: HomeComponent,
-  data: {
-    animation: 'homePage'
-  } },
-  { path: 'playground', component: PlaygroundComponent,
-  data: {
-    animation: 'playgroundPage'
-  } },
-  { path: 'login', loadChildren: './modules/authentication/authentication.module#AuthenticationModule', data: {
-    animation: 'loginPage'
-  } },
-  { path: 'profile', loadChildren: './modules/user-profile/user-profile.module#UserProfileModule',
-  data: {
-    animation: 'profilePage'
-  } },
+  { path: '', component: HomeComponent, data: { state: 'home' }},
+  { path: 'home', component: HomeComponent, data: { state: 'home' }},
+  { path: 'playground', component: PlaygroundComponent,data: { state: 'playground' }},
+  { path: 'login', loadChildren: './modules/authentication/authentication.module#AuthenticationModule', data: { state: 'login' }},
+  { path: 'profile', loadChildren: './modules/user-profile/user-profile.module#UserProfileModule', data: { state: 'profile' }},
+  // { path: 'sections', loadChildren: './modules/user-profile/user-profile.module#UserProfileModule', data: { state: 'sections' }},
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
