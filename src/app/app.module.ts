@@ -16,7 +16,7 @@ import { MatButtonModule, MatCheckboxModule,
   MatDialogModule, MatMenuModule, 
   MatFormFieldModule, MatSidenavModule, 
   MatSelectModule, MatInputModule, 
-  MatIconModule, MatIconRegistry 
+  MatIconModule, MatIconRegistry, MatDialogConfig, MAT_DIALOG_DATA
 } from '@angular/material';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgxGraphModule } from '@swimlane/ngx-graph'
@@ -26,6 +26,8 @@ import {VgControlsModule} from 'videogular2/controls';
 import {VgOverlayPlayModule} from 'videogular2/overlay-play';
 import {VgBufferingModule} from 'videogular2/buffering';
 import { YoutubePlayerModule } from 'ngx-youtube-player';
+
+import { DialogOverviewExampleDialog } from 'app/pages/playground/playground.component';
 
 // Routing
 import { routing } from './app.routing';
@@ -129,6 +131,9 @@ var firebaseConfig = {
 // ];
 
 @NgModule({
+  entryComponents: [
+    DialogOverviewExampleDialog
+  ],
   declarations: [
     AppComponent,
     ImageFilterPipe,
@@ -148,7 +153,8 @@ var firebaseConfig = {
     CanvasComponent,
     SvgLineComponent,
     SvgCircleComponent,
-    VideosComponent
+    VideosComponent,
+    DialogOverviewExampleDialog
   ], 
   imports: [
     routing,
@@ -164,6 +170,8 @@ var firebaseConfig = {
     BrowserModule,
     BrowserAnimationsModule,
     ContextMenuModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatButtonModule, MatCheckboxModule, 
     MatDialogModule, MatMenuModule, 
     MatFormFieldModule, MatSidenavModule, 

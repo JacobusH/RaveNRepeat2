@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { VgAPI } from 'videogular2/core';
 import { Video } from 'app/models/_index';
-import { Observable } from 'rxjs/observable'
+import { Observable } from 'rxjs'
 
 export interface IMedia {
   title: string;

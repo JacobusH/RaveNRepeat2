@@ -7,6 +7,7 @@ import { isDefaultChangeDetectionStrategy } from '@angular/core/src/change_detec
 import { ActivatedRoute, Router } from '@angular/router';
 import { PageEvent } from '@angular/material';
 import { DOCUMENT } from '@angular/platform-browser';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 // import * as _ from 'lodash';
 
 @Component({
