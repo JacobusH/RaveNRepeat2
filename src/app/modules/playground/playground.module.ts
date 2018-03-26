@@ -7,9 +7,9 @@ import { routing } from './playground.routing';
 
 // Components
 import { AnimationsComponent } from './animations/animations.component';
-import { PlaygroundComponent } from './playground/playground.component';
+import { PlaygroundComponent } from './playground.component';
 import { ModalComponent } from './modal/modal.component';
-import { CanvasComponent } from './canvas/canvas.component';
+import { CanvasComponent } from './canvas/canvas.component'; 
 
 
 @NgModule({

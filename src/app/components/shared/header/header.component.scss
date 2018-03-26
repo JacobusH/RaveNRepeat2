@@ -3,6 +3,24 @@
   font-size:22px;
 }
 
+.logo > a {
+  position: relative;
+  
+  .logo-outside {
+    animation-name:             rotate; 
+    animation-duration:         10.5s; 
+    animation-iteration-count:  infinite;
+    animation-timing-function: linear;
+  }
+
+  .logo-inside {
+    position:absolute;
+    left: 0;
+  }
+} 
+
+
+
 header {
   background: #0D1313;
   color: white;
@@ -38,7 +56,9 @@ header {
       justify-content: center;
 
       img {
-        width:60px;
+        width: 80px;
+        margin-top: -11px;
+        margin-bottom: -11px;
       }
     }
 
@@ -57,7 +77,17 @@ header {
   }
 }
 
-  
+// KEYFRAMES
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to { 
+    transform: rotate(360deg);
+  }
+}
+
+// MOBILE
 @media screen and (min-device-width: 1200px) /* Desktop */ {
   /* #header-bar {
     display:block;

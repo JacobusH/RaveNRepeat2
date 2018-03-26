@@ -1,9 +1,12 @@
 // import { AuthenticationComponent } from './authentication.component';
-import { PlaygroundComponent } from './playground/playground.component';import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
+
+// Components
 import { AnimationsComponent } from './animations/animations.component';
+import { PlaygroundComponent } from './playground.component';
 import { ModalComponent } from './modal/modal.component';
-import { CanvasComponent } from './canvas/canvas.component';
+import { CanvasComponent } from './canvas/canvas.component'; 
 
 export const routes: Routes = [
   // { path: '', component: LoginComponent }, // default route of the module
