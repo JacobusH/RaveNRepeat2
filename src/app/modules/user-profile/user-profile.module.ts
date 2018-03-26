@@ -6,25 +6,26 @@ import { TagInputModule } from 'ngx-chips';
 
 // Components
 import { ProfileComponent } from './profile/profile.component';
-import { VideoFormComponent } from './video-form/video-form.component';
+import { VideoItemComponent } from '../shared/video-item/video-item.component';
+import { VideoPlaylistComponent } from '../shared/video-playlist/video-playlist.component';
 
 // Services
 import { VideoService } from 'app/services/_index';
 
 // Routing
 import { routing } from './user-profile.routing';
-import { Profile } from 'selenium-webdriver/firefox';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     routing,
     FormsModule,
-    TagInputModule
+    TagInputModule,
   ],
   declarations: [
     ProfileComponent,
-    VideoFormComponent
   ],
   exports: [
     ProfileComponent
