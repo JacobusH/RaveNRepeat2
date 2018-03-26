@@ -1,14 +1,13 @@
 import { Component, OnInit, ViewEncapsulation, HostBinding } from '@angular/core';
 import { transition, trigger, state, style, keyframes, animate, query } from '@angular/animations';
-import { fractalAnimation, imageAnimation, parentAnimation, childAnimation, previewAnimation } from '../../animations/_index';
+import { fractalAnimation } from '../../animations/_index';
 
 @Component({ 
   selector: 'app-rave-repeater',
   templateUrl: './rave-repeater.component.html',
   styleUrls: ['./rave-repeater.component.scss'],
   encapsulation: ViewEncapsulation.Emulated,
-  animations: [fractalAnimation, imageAnimation, parentAnimation
-    , childAnimation, previewAnimation]
+  animations: [ fractalAnimation ]
 })
 export class RaveRepeaterComponent implements OnInit {
   @HostBinding('@preview')

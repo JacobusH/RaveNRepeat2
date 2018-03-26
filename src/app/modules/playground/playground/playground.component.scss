@@ -1,0 +1,24 @@
+nav {
+    width:85%;
+    background-color: #1a1a1a;
+    border: 1px solid black;
+    border-top: none;
+    border-radius: 5px;
+    font-family: 'Abril Fatface', cursive;
+    color: #5c0a5c;
+    display: flex;
+    justify-content: space-around;
+    padding:5px;
+    margin:0 auto;
+
+}
+
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #1a1a1a;
+    display:flex;
+    margin:0 auto;
+  }

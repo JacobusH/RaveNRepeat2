@@ -3,6 +3,8 @@ import { AuthenticationModule } from './modules/authentication/authentication.mo
 import { UserProfileModule } from './modules/user-profile/user-profile.module';
 import { SitePlansModule } from './modules/site-plans/site-plans.module';
 import { SiteSectionsModule } from './modules/site-sections/site-sections.module';
+import { PlaygroundModule } from './modules/playground/playground.module';
+import { SharedModule } from './modules/shared/shared.module';
 import { AlertModule, BsDropdownModule } from 'ngx-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -27,7 +29,6 @@ import {VgOverlayPlayModule} from 'videogular2/overlay-play';
 import {VgBufferingModule} from 'videogular2/buffering';
 import { YoutubePlayerModule } from 'ngx-youtube-player';
 
-import { DialogOverviewExampleDialog } from 'app/pages/playground/playground.component';
 
 // Routing
 import { routing } from './app.routing';
@@ -49,7 +50,6 @@ import { AlertMultiService, AlertService,  GalleryService,
 // Pages
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from 'app/pages/page-not-found/page-not-found.component';
-import { PlaygroundComponent } from 'app/pages/playground/playground.component';
 import { HomeComponent } from './pages/home/home.component';
 import { VideoPlaylistComponent } from './components/videos/video-playlist/video-playlist.component';
 import { VideoItemComponent } from './components/videos/video-item/video-item.component';
@@ -64,18 +64,6 @@ import { SvgLineComponent } from './components/rave-repeater/svg-line/svg-line.c
 import { SvgCircleComponent } from './components/rave-repeater/svg-circle/svg-circle.component';
 import { VideosComponent } from './components/videos/videos.component';
 
-
-
-// Initialize Firebase
-// var firebaseConfig = {
-//   apiKey: "AIzaSyC2Mn3EzXPCHZzhoSPUGmnhkqR_tf_YbVo",
-//     authDomain: "ravenrepeat2.firebaseapp.com",
-//     databaseURL: "https://ravenrepeat2.firebaseio.com",
-//     projectId: "ravenrepeat2",
-//     storageBucket: "ravenrepeat2.appspot.com",
-//     messagingSenderId: "768701302969"
-// };
-
 var firebaseConfig = {
   apiKey: "AIzaSyDvq-x-CLBHIDaIQcVXz6BKtMFEdgsLt8o",
     authDomain: "crawl-63a5c.firebaseapp.com",
@@ -85,61 +73,18 @@ var firebaseConfig = {
     messagingSenderId: "604192062922"
 };
 
-// const routes: Routes = [
-//   { path: '', component: HomeComponent },
-//   // { path: 'admin', canActivate: [AdminGuard], component: AdministrationComponent, children: [
-//   //   { path: "messages", component: AdminContactMessagesComponent},
-//   //   { path: "chat", component: LiveChatManagerComponent},
-//   //   { path: "faq", component: AdminFaqComponent},
-//   //   { path: "media", component: AdminMediaComponent},
-//   //   { path: "resources", component: AdminResourcesComponent},
-//   //   { path: "signups", component: AdminSignUpsComponent},
-//   //   { path: "testimonials", component: AdminTestimonialsComponent},
-//   //   { path: "teachers", component: AdminTeachersComponent},
-//   //   { path: "users", component: AdminUsersComponent},
-//   // ] },
-//   // { path: 'about', component: AboutComponent },
-//   // { path: 'announcements', component: AnnouncementsComponent },
-//   // { path: 'contact', component: ContactComponent },
-//   // { path: 'faq', component: FaqComponent },
-//   // { path: 'gallery', component: GalleryComponent },
-//   // { path: 'gallery/image/:id', component: ImageGalleryDetailComponent },
-//   // { path: 'home', component: HomeComponent },
-//   // { path: 'home/:id', component: HomeComponent },
-//   // { path: 'learntoplay', component: LearntoplayComponent },
-//   // { path: 'learntoplay/:id', component: LearntoplayComponent },
-//   { path: 'playground', component: PlaygroundComponent },
-//   { path: 'login', component: LoginComponent },
-//   // { path: 'profile', component: ProfileComponent },
-//   // { path: 'resources', component: ResourcesComponent },
-//   // { path: 'register', component: RegisterComponent },
-//   // { path: 'teachers', component: TeachersComponent },
-//   // { path: 'teachers/:id', component: TeacherDetailComponent },
-//   //   // children: [
-//   //   //   { path: '', redirectTo: 'overview', pathMatch: 'full' },
-//   //     // { path: 'overview', component: Overview },
-//   //     // { path: 'specs', component: Specs }
-//   //   // ]
-//   // },
-//   // { path: 'testimonials', component: TestimonialsComponent },
-//   // { path: 'testing/youtube', component: YoutubeComponent },
-//   // { path: 'testing/upload', component: UploadComponent },
-//   // { path: 'testing/tree', component: TreeComponent },
-//   // { path: 'contact/thanks', component: ThanksComponent },
-//   { path: '**', component: PageNotFoundComponent }
-  
-// ];
-
 @NgModule({
+  exports: [
+    
+  ],
   entryComponents: [
-    DialogOverviewExampleDialog
+    
   ],
   declarations: [
     AppComponent,
     ImageFilterPipe,
     SignupFilterPipe,
     ReadFilterPipe,
-    PlaygroundComponent,
     PageNotFoundComponent,
     HomeComponent,
     VideoPlaylistComponent,
@@ -153,8 +98,7 @@ var firebaseConfig = {
     CanvasComponent,
     SvgLineComponent,
     SvgCircleComponent,
-    VideosComponent,
-    DialogOverviewExampleDialog
+    VideosComponent
   ], 
   imports: [
     routing,
@@ -162,6 +106,8 @@ var firebaseConfig = {
     UserProfileModule,
     SitePlansModule,
     SiteSectionsModule,
+    PlaygroundModule,
+    SharedModule,
     // AlertModule.forRoot(),
     AngularFireModule,
     AngularFirestoreModule,
