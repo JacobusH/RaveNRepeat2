@@ -2,7 +2,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { TagInputModule } from 'ngx-chips';
 
 // Components
 import { ProfileComponent } from './profile/profile.component';
@@ -22,7 +21,6 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
     routing,
     FormsModule,
-    TagInputModule,
   ],
   declarations: [
     ProfileComponent,
