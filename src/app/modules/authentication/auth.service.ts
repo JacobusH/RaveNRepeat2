@@ -13,34 +13,34 @@ import { provideForRootGuard } from '@angular/router/src/router_module';
 
 @Injectable()
 export class AuthService {
-  @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
   user: Observable<User>;
-  behUser: BehaviorSubject<User> = new BehaviorSubject(null);
-  authstate: any;
+  isAdmin = false;
 
-  constructor(private afAuth: AngularFireAuth,
+  constructor(public afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private userService: UserService,
     private router: Router) { 
-      this.authstate = this.afAuth.authState;
+      // this.authstate = this.afAuth.authState;
 
-       //// Get auth data, then get firestore user document || null
-       this.user = this.afAuth.authState
-       .switchMap(user => {
-         if (user) {
-           return this.afs.doc<User>(`!Users/${user.uid}`).valueChanges()
-          //  return this.userService.users.doc(user.uid).valueChanges()
-         } else {
-           return Observable.of(null)
-         }
-       })
-
-       console.log(this.router.url);
-
+      this.user = this.afAuth.authState.switchMap(user => {
+        if (user) {
+          return this.afs.doc<User>(`!Users/${user.uid}`).valueChanges();
+        } else {
+          return Observable.of(null)
+        }
+      })
     }
 
-    get isAdmin() {
-      return true;
+    emailLogin(username, pass) {
+      const provider = new firebase.auth.EmailAuthProvider()
+      this.afAuth.auth.signInWithEmailAndPassword(username, pass).then(x => {
+        // worked, afAuth.authState will change now
+        this.router.navigate(['/']);
+      })
+      .catch(err => {
+        console.log("EMAIL LOGIN ERROR");
+        console.log(err);
+      })
     }
 
     googleLogin() {
@@ -79,21 +79,15 @@ export class AuthService {
         updatedAt: new Date()
       } 
 
-      const userRef: AngularFirestoreDocument<any> = this.afs.doc(`!Users/${userAuthCreds.uid}`);
+      const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${userAuthCreds.uid}`);
       userRef.snapshotChanges().map(action => action.payload.exists)
-        .subscribe(exists => {
-          if(exists) {
-            console.log('user exists');
-            this.getLoggedInName.emit('in');
-            this.router.navigate(['/profile']);
-          } else {
-            userRef.set(data);
-          }});
+        .subscribe(exists => exists 
+          ? console.log('user exists')//userRef.update(data)
+          : userRef.set(data))
     }
 
     logout() {
       this.afAuth.auth.signOut().then(() => {
-        this.getLoggedInName.emit('out');
           this.router.navigate(['/']);
       });
     }

@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="right">
-        <div *ngIf="!isLoggedIn; else showProfile_content"><a routerLink="/login"><i class="fa fa-user" aria-hidden="true"></i></a></div>
+        <div *ngIf="!isLoggedIn; else showProfile_content"><a (click)="showLoginModal()" style="cursor: pointer"><i class="fa fa-user" aria-hidden="true"></i></a></div>
         <div><a routerLink="/bugs"><i class="fa fa-bug" aria-hidden="true"></i></a></div>
         <div><a routerLink="/roadmap"><i class="fa fa-road" aria-hidden="true"></i></a></div>
         <div><a routerLink="/playground"><i class="fa fa-plane" aria-hidden="true"></i></a></div>
@@ -25,17 +25,6 @@
 </header>
 
 <!-- TEMPLATES -->
-<ng-template #showProfileList_content>
-<li class="dropdown">
-  <a class="dropdown-toggle" data-toggle="dropdown" routerLink="/profile">Profile</a>
-  <ul class="dropdown-menu">
-    <li *ngIf="isLoggedIn"><a routerLink="/admin" (click)="toggleState()">Administration</a></li> 
-    <li><a routerLink="/profile" (click)="toggleState()">View Profile</a></li>
-    <li><a routerLink="/" (click)="logout(); toggleState()" >Logout</a></li>
-  </ul>
-</li>
-</ng-template>
-
 <ng-template #showProfile_content>
 <div class="btn-group" dropdown>
   <button dropdownToggle type="button">

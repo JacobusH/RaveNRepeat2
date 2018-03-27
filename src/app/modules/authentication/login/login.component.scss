@@ -1,0 +1,15 @@
+h1 {
+  text-align: center;
+}
+
+.img-cont {
+  display:flex;
+  justify-content: center;
+
+  img {
+    cursor: pointer;
+    width:10%;
+    height:10%;
+    margin-top:5px;
+  }
+}

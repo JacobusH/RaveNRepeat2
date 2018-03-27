@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HelpComponent } from './help/help.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Services
 import { AuthService } from './auth.service';
@@ -14,6 +15,8 @@ import { routing } from './authentication.routing';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     routing
   ],
   declarations: [
