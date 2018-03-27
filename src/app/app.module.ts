@@ -43,7 +43,7 @@ import { SignupFilterPipe } from 'app/filters/signup-filter.pipe';
 import { ReadFilterPipe } from 'app/filters/read-filter.pipe';
 
 // Services
-import { AlertMultiService, AlertService,  GalleryService, 
+import { GalleryService, 
   LiveChatService, TrackService, UploadService, 
   UserService, VisualizerService, VideoService } from 'app/services/_index';
 
@@ -60,7 +60,6 @@ import { RaveRepeaterComponent } from './components/rave-repeater/rave-repeater.
 import { CanvasComponent } from './components/rave-repeater/canvas/canvas.component';
 import { SvgLineComponent } from './components/rave-repeater/svg-line/svg-line.component';
 import { SvgCircleComponent } from './components/rave-repeater/svg-circle/svg-circle.component';
-import { AlertComponent } from './components/alert/alert.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyDvq-x-CLBHIDaIQcVXz6BKtMFEdgsLt8o",
@@ -93,8 +92,7 @@ var firebaseConfig = {
     RaveRepeaterComponent,
     CanvasComponent,
     SvgLineComponent,
-    SvgCircleComponent,
-    AlertComponent
+    SvgCircleComponent
   ], 
   imports: [
     routing,
@@ -135,7 +133,6 @@ var firebaseConfig = {
     AngularFireAuth,
     AdminGuard,
     AuthGuard,
-    AlertMultiService, AlertService, 
     GalleryService, TrackService,
     LiveChatService, UploadService, 
     UserService, VisualizerService,

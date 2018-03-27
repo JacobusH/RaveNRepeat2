@@ -1,5 +1,3 @@
-<h1>Sign In</h1>
-
 <div class="cont">
   <div class="img-cont">
       <img src="/assets/images/F_icon.svg" (click)="facebookLogin()">
@@ -9,15 +7,20 @@
   <form (ngSubmit)="emailLogin()" #loginForm="ngForm" validate>
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="text" class="form-control" id="email" required
+      <input type="text" class="form-control" id="email" email required
+      pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
         [(ngModel)]="model.email" name="email"
         #email="ngModel">
-      <div [hidden]="email.valid || email.pristine"
-            class="alert alert-danger">
+      <div [hidden]="model.email?.length > 2 || email.pristine || !email.touched"
+          class="alert alert-danger">
         Email is required
       </div>
+      <div [hidden]="email.valid || email.pristine || !email.touched"
+        class="alert alert-danger">
+        Not a valid Email
+      </div>
     </div>
-    <div class="form-group">
+    <div class="form-group"> 
       <label for="password">Password</label>
       <input type="password" class="form-control" id="password" required
         [(ngModel)]="model.password" name="password"
@@ -33,7 +36,3 @@
     <button class="right btn btn-error" (click)="emailRegiser()" [disabled]="!loginForm.form.valid">Register</button>    
   </div>
 </div>
-
-<hr>
-
-<h1>No Account Yet? Register Here!</h1>

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Alert, AlertType } from 'app/models/alert.model';
-import { AlertService } from 'app/services/alert.service';
+import { Alert, AlertType } from './alert.model';
+import { AlertMultiService } from './alert-multi.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-alert',
@@ -11,10 +12,10 @@ import { AlertService } from 'app/services/alert.service';
 export class AlertComponent implements OnInit {
   alerts: Alert[] = [];
 
-    constructor(private alertService: AlertService) { }
+    constructor(private alertService: AlertMultiService) { }
 
     ngOnInit() {
-        this.alertService.getAlert().subscribe((alert: Alert) => {
+        let ref = this.alertService.getAlert().subscribe((alert: Alert) => {
             if (!alert) {
                 // clear alerts when an empty alert is received
                 this.alerts = [];
@@ -23,7 +24,12 @@ export class AlertComponent implements OnInit {
 
             // add alert to array
             this.alerts.push(alert);
+
+            // timeout after 5 seconds
+            setTimeout(() => this.removeAlert(alert), 5000);
         });
+
+       
     }
 
     removeAlert(alert: Alert) {

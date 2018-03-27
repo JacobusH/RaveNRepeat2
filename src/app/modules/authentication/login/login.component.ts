@@ -1,12 +1,13 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Inject } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from 'app/models/_index';
-import { UserService, AlertMultiService } from 'app/services/_index';
+import { UserService } from 'app/services/_index';
+import { AlertMultiService } from 'app/modules/shared/alert/alert-multi.service';
 import { AuthService } from 'app/modules/authentication/auth.service';
-import { MatSnackBar } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import * as firebase from 'firebase/app';
 import 'rxjs/add/operator/switchMap'
 
@@ -23,36 +24,39 @@ export class LoginComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService,
     private alertMultiService: AlertMultiService,
+    private authService: AuthService,
     private userService: UserService,
-    public snackBar: MatSnackBar) { }
+    private dialogRef: MatDialogRef<LoginComponent>,
+    @Inject(MAT_DIALOG_DATA) data) { }
 
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    
   }
   
   facebookLogin() {
     this.authService.facebookLogin().then(authData => {
-      console.log("Facebook auth data");
-      console.log(authData);
-      this.router.navigate(['']);
+      this.dialogRef.close();
+      this.router.navigate(['/profile']);
     })
     .catch(error => {
-      console.log(error);
-      this.alertService.error(error.message);
+      this.alertMultiService.error(error.message);
     });
   }
 
   emailLogin() {
+    console.log(this.model.email)
     this.authService.afAuth.auth.signInWithEmailAndPassword(this.model.email, this.model.password)
     .then(authData => {
-      console.log("Email auth data");
-      console.log(authData);
-      this.router.navigate(['']);
+      this.dialogRef.close();
+      this.router.navigate(['/profile']);
     })
     .catch(err => {
-      console.log(err.message);
+      if(err.message.indexOf('no user record') > 1)
+      {
+        err.message = 'There is no user with these credentials. Please try again';
+      }
       this.alertMultiService.error(err.message);
     });
   }
@@ -60,12 +64,10 @@ export class LoginComponent implements OnInit {
   emailRegiser() {
     this.authService.afAuth.auth.createUserWithEmailAndPassword(this.model.email, this.model.password)
     .then(authData => {
-      console.log("Email Register auth data");
-      console.log(authData);
-      this.router.navigate(['']);
+      this.dialogRef.close();
+      this.router.navigate(['/profile']);
     })
     .catch(err => {
-      console.log(err.message);
       this.alertMultiService.error(err.message);
     });
   }

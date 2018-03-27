@@ -1,4 +1,3 @@
-export * from './alert.model';
 export * from './galleryItem.model';
 export * from './graphLink.model';
 export * from './graphNode.model';

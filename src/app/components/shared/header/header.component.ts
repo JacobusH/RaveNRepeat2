@@ -62,8 +62,9 @@ export class HeaderComponent implements OnInit {
   }
 
   showLoginModal() {
-    const dialogRef = this.dialog.open(LoginComponent, {
-      height: '80%'
+    const dialogRef = this.dialog;
+    this.dialog.open(LoginComponent, {
+      height: '80% !important'
     }).afterClosed().subscribe(result => {
       // 
     });
