@@ -6,7 +6,7 @@
   </div>
   
 
-  <form (ngSubmit)="emailLogin()" #loginForm="ngForm" novalidate>
+  <form (ngSubmit)="emailLogin()" #loginForm="ngForm" validate>
     <div class="form-group">
       <label for="email">Email</label>
       <input type="text" class="form-control" id="email" required
@@ -27,8 +27,11 @@
         Password is required
       </div>
     </div>
-    <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Login</button>
   </form>
+  <div class="bottom">
+    <button class="left btn btn-success" (click)="emailLogin()" [disabled]="!loginForm.form.valid">Login</button>
+    <button class="right btn btn-error" (click)="emailRegiser()" [disabled]="!loginForm.form.valid">Register</button>    
+  </div>
 </div>
 
 <hr>

@@ -60,6 +60,7 @@ import { RaveRepeaterComponent } from './components/rave-repeater/rave-repeater.
 import { CanvasComponent } from './components/rave-repeater/canvas/canvas.component';
 import { SvgLineComponent } from './components/rave-repeater/svg-line/svg-line.component';
 import { SvgCircleComponent } from './components/rave-repeater/svg-circle/svg-circle.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyDvq-x-CLBHIDaIQcVXz6BKtMFEdgsLt8o",
@@ -92,7 +93,8 @@ var firebaseConfig = {
     RaveRepeaterComponent,
     CanvasComponent,
     SvgLineComponent,
-    SvgCircleComponent
+    SvgCircleComponent,
+    AlertComponent
   ], 
   imports: [
     routing,

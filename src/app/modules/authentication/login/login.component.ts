@@ -4,8 +4,9 @@ import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection 
 import { Observable } from 'rxjs/Observable';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from 'app/models/_index';
-import { UserService, AlertMultiService, AlertService } from 'app/services/_index';
+import { UserService, AlertMultiService } from 'app/services/_index';
 import { AuthService } from 'app/modules/authentication/auth.service';
+import { MatSnackBar } from '@angular/material';
 import * as firebase from 'firebase/app';
 import 'rxjs/add/operator/switchMap'
 
@@ -23,27 +24,14 @@ export class LoginComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService,
-    private alertService: AlertService,
     private alertMultiService: AlertMultiService,
-    private userService: UserService) { }
+    private userService: UserService,
+    public snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
-
-  // googleLogin() {
-  //   this.af.loginWithGoogle()
-  //   .then(authData => {
-  //     console.log("Google auth data");
-  //     console.log(authData);
-  //     this.router.navigate(['']);
-  //   })
-  //   .catch(err => {
-  //     // this.alertService.error(err.message);
-  //     this.alertMultiService.error(err.message);
-  //   });
-  // }
-
+  
   facebookLogin() {
     this.authService.facebookLogin().then(authData => {
       console.log("Facebook auth data");
@@ -52,24 +40,35 @@ export class LoginComponent implements OnInit {
     })
     .catch(error => {
       console.log(error);
-      // this.alertService.error(error.message);
-      this.alertMultiService.error(error.message);
+      this.alertService.error(error.message);
     });
   }
 
-  // emailLogin() {
-  //   this.af.loginWithEmail(this.model.email, this.model.password)
-  //   .then(authData => {
-  //     console.log("Email auth data");
-  //     console.log(authData);
-  //     this.router.navigate(['']);
-  //   })
-  //   .catch(err => {
-  //     console.log(err.message);
-  //     // this.alertService.error(err.message);
-  //     this.alertMultiService.error(err.message);
-  //   });
-  // }
+  emailLogin() {
+    this.authService.afAuth.auth.signInWithEmailAndPassword(this.model.email, this.model.password)
+    .then(authData => {
+      console.log("Email auth data");
+      console.log(authData);
+      this.router.navigate(['']);
+    })
+    .catch(err => {
+      console.log(err.message);
+      this.alertMultiService.error(err.message);
+    });
+  }
+
+  emailRegiser() {
+    this.authService.afAuth.auth.createUserWithEmailAndPassword(this.model.email, this.model.password)
+    .then(authData => {
+      console.log("Email Register auth data");
+      console.log(authData);
+      this.router.navigate(['']);
+    })
+    .catch(err => {
+      console.log(err.message);
+      this.alertMultiService.error(err.message);
+    });
+  }
 
   logout() {
     this.authService.logout();
