@@ -24,3 +24,11 @@
 .FR {
     float:right;
 }
+
+.dialog-cont {
+  // border-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 100%);
+  // border-radius: 7px;
+
+  border-image: radient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 21 30 30 21 repeat repeat;
+
+}

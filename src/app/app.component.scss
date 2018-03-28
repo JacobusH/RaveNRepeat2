@@ -1,0 +1,17 @@
+.box {
+  width:30px;
+  height:30px;
+  $gradient: left, red, orange, yellow, green, blue, indigo, violet, indigo, blue, green, yellow, orange, red;
+
+	background-image:         linear-gradient($gradient);
+
+	$animation: charlieeee 2.5s forwards linear infinite;
+	animation:         $animation;
+
+	background-size: 50% auto;
+}
+
+@keyframes charlieeee { 
+	from { background-position: top left; }
+	to   { background-position: top right; }
+}

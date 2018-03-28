@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { User } from 'app/models/user.model';
 import { isDefaultChangeDetectionStrategy } from '@angular/core/src/change_detection/constants';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PageEvent } from '@angular/material';
+import { PageEvent, MatDialogConfig } from '@angular/material';
 import { DOCUMENT } from '@angular/platform-browser';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { LoginComponent } from 'app/modules/authentication/login/login.component';
@@ -62,9 +62,9 @@ export class HeaderComponent implements OnInit {
   }
 
   showLoginModal() {
-    const dialogRef = this.dialog;
-    this.dialog.open(LoginComponent, {
-      height: '80% !important'
+    const dialogRef = this.dialog.open(LoginComponent, {
+      height: '80% !important',
+      panelClass: 'dialog-cont'
     }).afterClosed().subscribe(result => {
       // 
     });

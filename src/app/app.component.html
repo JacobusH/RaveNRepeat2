@@ -3,6 +3,7 @@
 <app-header></app-header>
 <app-alert></app-alert>
 <div class="app-content" [@routerAnimation]="getState(o)">
+  <div class="box"></div>
   <router-outlet #o="outlet"></router-outlet>
 </div>
 <!-- <app-footer></app-footer> --> 
