@@ -2,7 +2,9 @@
 
 <app-video-playlist></app-video-playlist> -->
 
+<app-type-ahead (searchedValue)="onValueSearched($event)"></app-type-ahead>
+{{searchedArtist}}
 
-<app-view-tracklist [artist]="'Sugar Dj'"></app-view-tracklist>
+<app-view-tracklist [artist]="searchedArtist"></app-view-tracklist>
 
 <app-notification></app-notification>

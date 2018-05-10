@@ -9,7 +9,8 @@ import { routing } from './playground.routing';
 import { AnimationsComponent } from './animations/animations.component';
 import { PlaygroundComponent } from './playground.component';
 import { ModalComponent } from './modal/modal.component';
-import { CanvasComponent } from './canvas/canvas.component'; 
+import { CanvasComponent } from './canvas/canvas.component';
+import { ObservablesComponent } from './observables/observables.component'; 
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CanvasComponent } from './canvas/canvas.component';
     PlaygroundComponent,
     ModalComponent,
     AnimationsComponent,
-    CanvasComponent
+    CanvasComponent,
+    ObservablesComponent
   ],
   exports: [
     PlaygroundComponent

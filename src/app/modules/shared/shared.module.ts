@@ -13,6 +13,7 @@ import { VideoFormComponent } from './video-form/video-form.component';
 
 // Services
 import { AlertMultiService } from './alert/alert-multi.service';
+import { PlaylistComponent } from './playlist/playlist.component';
 
 @NgModule({
   exports: [
@@ -35,7 +36,8 @@ import { AlertMultiService } from './alert/alert-multi.service';
     CanvasLazyComponent,
     VideoPlaylistComponent,
     VideoItemComponent,
-    VideoFormComponent
+    VideoFormComponent,
+    PlaylistComponent
   ],
   providers: [
     AlertMultiService

@@ -11,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
   encapsulation: ViewEncapsulation.Emulated
 })
 export class HomeComponent implements OnInit {
-  
+  searchedArtist: string;
 
   constructor(private trackService: TrackService) { 
     
@@ -19,6 +19,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     
+  }
+
+  onValueSearched($event) {
+    this.searchedArtist = $event;
   }
 
 }

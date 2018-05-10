@@ -7,6 +7,7 @@ import { AnimationsComponent } from './animations/animations.component';
 import { PlaygroundComponent } from './playground.component';
 import { ModalComponent } from './modal/modal.component';
 import { CanvasComponent } from './canvas/canvas.component'; 
+import { ObservablesComponent } from './observables/observables.component';
 
 export const routes: Routes = [
   // { path: '', component: LoginComponent }, // default route of the module
@@ -15,7 +16,8 @@ export const routes: Routes = [
     { path: '', redirectTo: 'playground', pathMatch: 'full' },
     { path: 'modal', component: ModalComponent },
     { path: 'animations', component: AnimationsComponent },
-    { path: 'canvas', component: CanvasComponent }
+    { path: 'canvas', component: CanvasComponent },
+    { path: 'observables', component: ObservablesComponent },
   ]}
 ];
 

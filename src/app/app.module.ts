@@ -1,4 +1,5 @@
 // Modules
+import './shared/rxjs-operator';
 import { AuthenticationModule } from './modules/authentication/authentication.module';
 import { UserProfileModule } from './modules/user-profile/user-profile.module';
 import { SitePlansModule } from './modules/site-plans/site-plans.module';
@@ -60,6 +61,7 @@ import { RaveRepeaterComponent } from './components/rave-repeater/rave-repeater.
 import { CanvasComponent } from './components/rave-repeater/canvas/canvas.component';
 import { SvgLineComponent } from './components/rave-repeater/svg-line/svg-line.component';
 import { SvgCircleComponent } from './components/rave-repeater/svg-circle/svg-circle.component';
+import { TypeAheadComponent } from './components/type-ahead/type-ahead.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyDvq-x-CLBHIDaIQcVXz6BKtMFEdgsLt8o",
@@ -92,7 +94,8 @@ var firebaseConfig = {
     RaveRepeaterComponent,
     CanvasComponent,
     SvgLineComponent,
-    SvgCircleComponent
+    SvgCircleComponent,
+    TypeAheadComponent,
   ], 
   imports: [
     routing,

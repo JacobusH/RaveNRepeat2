@@ -1,0 +1,4 @@
+<input [(ngModel)]="searchBox" (keyup)="onkeyup($event)" (keyup.enter)="exactSearch(searchBox)" placeholder="search artists..." />
+<ul *ngFor="let artist of results | async" class="card">
+  <li (click)="selectArtist(artist)">{{artist.name}}</li>
+</ul>

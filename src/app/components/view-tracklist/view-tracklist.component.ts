@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, OnChanges } from '@angular/core';
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
 import { TrackService } from 'app/services/_index';
 import { Track } from 'app/models/_index';
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./view-tracklist.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class ViewTracklistComponent implements OnInit {
+export class ViewTracklistComponent implements OnInit, OnChanges {
   @Input('artist') artist: string;
   currentTracks: Observable<Track[]>;
 
@@ -18,7 +18,18 @@ export class ViewTracklistComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.currentTracks = this.trackService.get(this.artist).valueChanges();
+    // this.currentTracks = this.trackService.get(this.artist).valueChanges();
+  }
+
+  ngOnChanges(changes) {
+    this.setTracks()
+  }
+
+  setTracks(){
+    if(this.artist != undefined)
+    {
+      this.currentTracks = this.trackService.get(this.artist).valueChanges();
+    }
   }
 
 }
