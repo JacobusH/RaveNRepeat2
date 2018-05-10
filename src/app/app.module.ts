@@ -1,6 +1,7 @@
 // Modules
 import './shared/rxjs-operator';
 import { AuthenticationModule } from './modules/authentication/authentication.module';
+import { MusicModule } from './modules/music/music.module';
 import { UserProfileModule } from './modules/user-profile/user-profile.module';
 import { SitePlansModule } from './modules/site-plans/site-plans.module';
 import { SiteSectionsModule } from './modules/site-sections/site-sections.module';
@@ -21,7 +22,6 @@ import { MatButtonModule, MatCheckboxModule,
   MatSelectModule, MatInputModule, 
   MatIconModule, MatIconRegistry, MatDialogConfig, MAT_DIALOG_DATA
 } from '@angular/material';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgxGraphModule } from '@swimlane/ngx-graph'
 import { Routes, RouterModule } from '@angular/router';
 import {VgCoreModule} from 'videogular2/core';
@@ -52,10 +52,6 @@ import { GalleryService,
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from 'app/pages/page-not-found/page-not-found.component';
 import { HomeComponent } from './pages/home/home.component';
-import { ViewArtistComponent } from './components/view-artist/view-artist.component';
-import { ViewTrackComponent } from './components/view-track/view-track.component';
-import { ViewTracklistComponent } from './components/view-tracklist/view-tracklist.component';
-import { RatingComponent } from './components/rating/rating.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { RaveRepeaterComponent } from './components/rave-repeater/rave-repeater.component';
 import { CanvasComponent } from './components/rave-repeater/canvas/canvas.component';
@@ -86,10 +82,6 @@ var firebaseConfig = {
     ReadFilterPipe,
     PageNotFoundComponent,
     HomeComponent,
-    ViewArtistComponent,
-    ViewTrackComponent,
-    ViewTracklistComponent,
-    RatingComponent,
     HeaderComponent,
     RaveRepeaterComponent,
     CanvasComponent,
@@ -100,6 +92,7 @@ var firebaseConfig = {
   imports: [
     routing,
     AuthenticationModule,
+    MusicModule,
     UserProfileModule,
     SitePlansModule,
     SiteSectionsModule,
@@ -120,7 +113,6 @@ var firebaseConfig = {
     MatFormFieldModule, MatSidenavModule, 
     MatSelectModule, MatInputModule, 
     MatIconModule,
-    NgbModule.forRoot(),
     NgxGraphModule,
     // RouterModule.forRoot(routes),
     VgCoreModule,

@@ -9,6 +9,7 @@ export const routes: Routes = [
   { path: 'playground', loadChildren: './modules/playground/playground.module#PlaygroundModule', data: { state: 'playground' }},
   { path: 'login', loadChildren: './modules/authentication/authentication.module#AuthenticationModule', data: { state: 'login' }},
   { path: 'profile', loadChildren: './modules/user-profile/user-profile.module#UserProfileModule', data: { state: 'profile' }},
+  { path: 'music', loadChildren: './modules/music/music.module#MusicModule', data: { state: 'music' }},
   // { path: 'sections', loadChildren: './modules/user-profile/user-profile.module#UserProfileModule', data: { state: 'sections' }},
 ];
 
