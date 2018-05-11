@@ -13,7 +13,8 @@ import { VideoFormComponent } from './video-form/video-form.component';
 
 // Services
 import { AlertMultiService } from './alert/alert-multi.service';
-import { PlaylistComponent } from './playlist/playlist.component';
+import { VideoPlaylistService } from './video-playlist/video-playlist.service';
+import { VideoItemService } from './video-item/video-item.service';
 
 @NgModule({
   exports: [
@@ -37,10 +38,11 @@ import { PlaylistComponent } from './playlist/playlist.component';
     VideoPlaylistComponent,
     VideoItemComponent,
     VideoFormComponent,
-    PlaylistComponent
   ],
   providers: [
     AlertMultiService
+    , VideoPlaylistService
+    , VideoItemService
   ]
 })
 export class SharedModule { }
