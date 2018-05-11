@@ -36,7 +36,7 @@ export class VideoPlaylistComponent implements OnInit {
       this.videoService.get(x['videoId']).valueChanges().subscribe(video => {
           this.currentVideos.push(video);
         })
-      });
+      }); 
     })
   
   }
