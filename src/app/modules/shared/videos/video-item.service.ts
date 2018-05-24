@@ -1,9 +1,9 @@
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { VideoItem } from './video-item.model';
-import 'rxjs/add/operator/switchMap'
+
 import * as firebase from 'firebase/app';
 
 
@@ -34,13 +34,13 @@ export class VideoItemService {
       return data;
   }
 
-  saveNewPlaylist(t: VideoItem): Promise<firebase.firestore.DocumentReference>  {
-    let promise: Promise<firebase.firestore.DocumentReference> = this.videos.add(t);
-    promise.then(x => {
-      x.update({key: x.id});
-    });
-
-    return promise;
+  save(item: VideoItem) : Promise<firebase.firestore.DocumentReference> {
+      let promise: Promise<firebase.firestore.DocumentReference> = this.videos.add(item);
+      promise.then(x => {
+        x.update({key: x.id});
+      });
+  
+      return promise;
   }
 
   edit(item: VideoItem) {

@@ -2,13 +2,12 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable ,  BehaviorSubject } from 'rxjs';
 import { User } from 'app/models/user.model';
 import { UserService } from 'app/services/user.service';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import * as firebase from 'firebase/app';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/map';
+
+
 import { provideForRootGuard } from '@angular/router/src/router_module';
 
 @Injectable()

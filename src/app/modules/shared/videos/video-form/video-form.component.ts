@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { Video } from 'app/models/_index';
-import { VideoService } from 'app/services/_index';
+import { VideoItem } from '../video-item.model';
+import { VideoItemService } from '../video-item.service';
 import {
   ReactiveFormsModule,
   FormsModule,
@@ -12,7 +12,7 @@ import {
   NgForm
 } from '@angular/forms';
 import * as firebase from 'firebase/app';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-video-form',
@@ -22,11 +22,11 @@ import { Observable } from 'rxjs/Observable';
 })
 export class VideoFormComponent implements OnInit {
   private model = this.videoService.createNew();
-  private selectedVideo: Video;
+  private selectedVideo: VideoItem;
   private videos: Observable<{}[]>;
   private itemsAsObjects = [{value: 0, display: 'Angular'}, {value: 1, display: 'React'}];
 
-  constructor(private videoService: VideoService) { 
+  constructor(private videoService: VideoItemService) { 
     this.videos = this.videoService.videos.valueChanges();
   }
 
@@ -52,7 +52,7 @@ export class VideoFormComponent implements OnInit {
     this.model = this.videoService.createNew();
   }
 
-  setSelectedVideo(faq: Video) {
+  setSelectedVideo(faq: VideoItem) {
     this.selectedVideo = faq;
     this.model = faq;
   }

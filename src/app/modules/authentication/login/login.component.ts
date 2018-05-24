@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, Inject } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from 'app/models/_index';
 import { UserService } from 'app/services/_index';
@@ -9,7 +9,7 @@ import { AlertMultiService } from 'app/modules/shared/alert/alert-multi.service'
 import { AuthService } from 'app/modules/authentication/auth.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import * as firebase from 'firebase/app';
-import 'rxjs/add/operator/switchMap'
+
 
 @Component({
   selector: 'app-login',

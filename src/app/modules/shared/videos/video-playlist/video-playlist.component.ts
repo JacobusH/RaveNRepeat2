@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { VgAPI } from 'videogular2/core';
 import { Observable } from 'rxjs'
-import { VideoPlaylistService } from './video-playlist.service';
-import { VideoItemService } from '../video-item/video-item.service';
-import { VideoPlaylist } from './video-playlist.model';
-import { VideoItem } from '../video-item/video-item.model';
-import 'rxjs/add/operator/mergeMap';
+import { VideoPlaylistService } from '../video-playlist.service';
+import { VideoItemService } from '../video-item.service';
+import { VideoPlaylist } from '../video-playlist.model';
+import { VideoItem } from '../video-item.model';
+
 
 @Component({
   selector: 'app-video-playlist',

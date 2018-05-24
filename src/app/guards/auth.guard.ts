@@ -3,11 +3,11 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 import { UserService } from 'app/services/_index';
 import { AuthService } from 'app/modules/authentication/auth.service';
 import { User } from 'app/models/_index';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/take';
+
+
+
 import * as _ from 'lodash';
 
 @Injectable()

@@ -2,8 +2,7 @@ import { Component, OnInit, ViewEncapsulation, EventEmitter, Output } from '@ang
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
+import { Observable ,  Subject } from 'rxjs';
 import { switchMap, filter } from 'rxjs/operators';
 
 @Component({

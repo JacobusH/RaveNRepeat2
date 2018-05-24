@@ -7,14 +7,14 @@ import { TagInputModule } from 'ngx-chips';
 import { AnimateRnrComponent } from './animate-rnr/animate-rnr.component';
 import { AlertComponent } from './alert/alert.component';
 import { CanvasLazyComponent } from './canvas-lazy/canvas-lazy.component';
-import { VideoPlaylistComponent } from './video-playlist/video-playlist.component'
-import { VideoItemComponent } from './video-item/video-item.component';
-import { VideoFormComponent } from './video-form/video-form.component';
+import { VideoPlaylistComponent } from './videos/video-playlist/video-playlist.component'
+import { VideoItemComponent } from './videos/video-item/video-item.component';
+import { VideoFormComponent } from './videos/video-form/video-form.component';
 
 // Services
 import { AlertMultiService } from './alert/alert-multi.service';
-import { VideoPlaylistService } from './video-playlist/video-playlist.service';
-import { VideoItemService } from './video-item/video-item.service';
+import { VideoPlaylistService } from './videos/video-playlist.service';
+import { VideoItemService } from './videos/video-item.service';
 
 @NgModule({
   exports: [

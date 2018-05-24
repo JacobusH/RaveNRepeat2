@@ -46,7 +46,7 @@ import { ReadFilterPipe } from 'app/filters/read-filter.pipe';
 // Services
 import { GalleryService, 
   LiveChatService, TrackService, UploadService, 
-  UserService, VisualizerService, VideoService } from 'app/services/_index';
+  UserService, VisualizerService } from 'app/services/_index';
 
 // Pages
 import { AppComponent } from './app.component';
@@ -129,7 +129,6 @@ var firebaseConfig = {
     GalleryService, TrackService,
     LiveChatService, UploadService, 
     UserService, VisualizerService,
-    VideoService
   ],
   bootstrap: [AppComponent]
 })

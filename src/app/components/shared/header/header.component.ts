@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, HostListener, Inject } from '@angular/core';
 import { UserService } from 'app/services/_index';
 import { AuthService } from 'app/modules/authentication/auth.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { User } from 'app/models/user.model';
 import { isDefaultChangeDetectionStrategy } from '@angular/core/src/change_detection/constants';
 import { ActivatedRoute, Router } from '@angular/router';
