@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { TrackerItem, TrackerItemDyn } from './tracker.model';
+import { TrackerItem, trackerItemDyn } from './tracker.model';
 
 @Component({
   selector: 'app-tracker',
@@ -12,11 +12,10 @@ export class TrackerComponent implements OnInit {
   lat: number = 51.678418;
   lng: number = 7.809007;
 
-  dataObj;
+  trackerItem;
   
   constructor() { 
-    let test: TrackerItem;
-    this.dataObj = test;
+    this.trackerItem = trackerItemDyn;
   }
 
   ngOnInit() {
@@ -24,3 +23,4 @@ export class TrackerComponent implements OnInit {
   }
 
 }
+ 

@@ -7,6 +7,7 @@ import { TagInputModule } from 'ngx-chips';
 import { AnimateRnrComponent } from './animate-rnr/animate-rnr.component';
 import { AlertComponent } from './alert/alert.component';
 import { CanvasLazyComponent } from './canvas-lazy/canvas-lazy.component';
+import { FormDynamicComponent } from './form-dynamic/form-dynamic.component';
 import { VideoPlaylistComponent } from './videos/video-playlist/video-playlist.component'
 import { VideoItemComponent } from './videos/video-item/video-item.component';
 import { VideoFormComponent } from './videos/video-form/video-form.component';
@@ -17,24 +18,26 @@ import { VideoPlaylistService } from './videos/video-playlist.service';
 import { VideoItemService } from './videos/video-item.service';
 
 @NgModule({
-  exports: [
-    AnimateRnrComponent,
-    AlertComponent,
-    CanvasLazyComponent,
-    VideoPlaylistComponent,
-    VideoItemComponent,
-    VideoFormComponent
-  ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     TagInputModule
   ],
+  exports: [
+    AnimateRnrComponent,
+    AlertComponent,
+    CanvasLazyComponent,
+    FormDynamicComponent,
+    VideoPlaylistComponent,
+    VideoItemComponent,
+    VideoFormComponent
+  ],
   declarations: [
     AlertComponent,
     AnimateRnrComponent,
     CanvasLazyComponent,
+    FormDynamicComponent,
     VideoPlaylistComponent,
     VideoItemComponent,
     VideoFormComponent,
