@@ -1,10 +1,29 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ApplicationRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
+
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+
+import { TrackerComponent } from './tracker.component';
+
+// Routing
+import { routing } from './tracker.routing';
+
 
 @NgModule({
   imports: [
-    CommonModule
+    routing,
+    CommonModule,
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCUXVv45TIEeHtxkDIEy5ZEFsjmKKnAXiI'
+    }),
+    AgmSnazzyInfoWindowModule,
   ],
-  declarations: []
+  exports: [
+    TrackerComponent
+  ],
+  declarations: [TrackerComponent]
 })
 export class TrackerModule { }

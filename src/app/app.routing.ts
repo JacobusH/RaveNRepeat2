@@ -10,6 +10,7 @@ export const routes: Routes = [
   { path: 'login', loadChildren: './modules/authentication/authentication.module#AuthenticationModule', data: { state: 'login' }},
   { path: 'profile', loadChildren: './modules/user-profile/user-profile.module#UserProfileModule', data: { state: 'profile' }},
   { path: 'music', loadChildren: './modules/music/music.module#MusicModule', data: { state: 'music' }},
+  { path: 'tracker', loadChildren: './modules/tracker/tracker.module#TrackerModule', data: { state: 'tracker' }},
   // { path: 'sections', loadChildren: './modules/user-profile/user-profile.module#UserProfileModule', data: { state: 'sections' }},
 ];
 

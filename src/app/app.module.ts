@@ -1,4 +1,4 @@
-// Modules
+// My Modules
 import './shared/rxjs-operator';
 import { AuthenticationModule } from './modules/authentication/authentication.module';
 import { MusicModule } from './modules/music/music.module';
@@ -7,6 +7,8 @@ import { SitePlansModule } from './modules/site-plans/site-plans.module';
 import { SiteSectionsModule } from './modules/site-sections/site-sections.module';
 import { PlaygroundModule } from './modules/playground/playground.module';
 import { SharedModule } from './modules/shared/shared.module';
+import { TrackerModule } from './modules/tracker/tracker.module';
+// Modules
 import { AlertModule, BsDropdownModule } from 'ngx-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -57,6 +59,7 @@ import { RaveRepeaterComponent } from './components/rave-repeater/rave-repeater.
 import { CanvasComponent } from './components/rave-repeater/canvas/canvas.component';
 import { SvgLineComponent } from './components/rave-repeater/svg-line/svg-line.component';
 import { SvgCircleComponent } from './components/rave-repeater/svg-circle/svg-circle.component';
+import { FormDynamicComponent } from './components/form-dynamic/form-dynamic.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyDvq-x-CLBHIDaIQcVXz6BKtMFEdgsLt8o",
@@ -86,9 +89,11 @@ var firebaseConfig = {
     CanvasComponent,
     SvgLineComponent,
     SvgCircleComponent,
+    FormDynamicComponent,
   ], 
   imports: [
     routing,
+    // TrackerModule,
     AuthenticationModule,
     MusicModule,
     UserProfileModule,

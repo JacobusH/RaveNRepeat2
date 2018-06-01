@@ -16,8 +16,8 @@ export class ObservablesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.initObbys();
-    this.runObbys();
+    // this.initObbys();
+    // this.runObbys();
     
   }
 
