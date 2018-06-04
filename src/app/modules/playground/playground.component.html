@@ -1,9 +1,12 @@
-<div class="arrow-up"></div>
-<nav>
-  <a [routerLink]="['animations']">Animations</a>
-  <a [routerLink]="['modal']">Modals</a>
-  <a [routerLink]="['canvas']">Canvas</a>
-  <a [routerLink]="['observables']">Obbys</a>
-</nav>
-<router-outlet></router-outlet>
+<div class="child-nav">
+  <div class="arrow-up"></div>
+  <nav>
+    <a [routerLink]="['animations']">Animations</a>
+    <a [routerLink]="['modal']">Modals</a>
+    <a [routerLink]="['canvas']">Canvas</a>
+    <a [routerLink]="['observables']">Obbys</a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>
+
 <!--CHILD ROUTES HERE -->

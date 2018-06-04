@@ -1,6 +1,6 @@
 import { GeoPoint } from "@firebase/firestore-types";
 
-export interface TrackerItem {
+export interface TrackerBeer {
   key: string,
   userKey: string,
   locationName: string,
@@ -12,7 +12,7 @@ export interface TrackerItem {
   drinkingDate: Date,
 }
 
-export const trackerItemDyn = {
+export const trackerBeerDyn = {
   locationName: {
     label: 'Location Name',
     value: 'Where are you?',
@@ -56,7 +56,8 @@ export const trackerItemDyn = {
   rating: {
     label: 'Rating',
     value: 5,
-    type: 'rating',
+    // type: 'rating',
+    type: 'text',
     validation: {
       required: true
     }
