@@ -6,6 +6,10 @@
         <input *ngSwitchCase="'text'" 
           [formControlName]="prop.key"
           [id]="prop.key" [type]="prop.type">
+
+          <input *ngSwitchCase="'textarea'" 
+          [formControlName]="prop.key"
+          [id]="prop.key" [type]="prop.type" cols="10" rows="5">
         
         <div *ngSwitchCase="'radio'">
           <label *ngFor="let option of prop.options">

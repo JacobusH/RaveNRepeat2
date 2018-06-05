@@ -47,7 +47,7 @@ import { ReadFilterPipe } from 'app/filters/read-filter.pipe';
 
 // Services
 import { GalleryService, 
-  LiveChatService, TrackService, UploadService, 
+  LiveChatService, UploadService, 
   UserService, VisualizerService } from 'app/services/_index';
 
 // Pages
@@ -129,7 +129,7 @@ var firebaseConfig = {
     AngularFireAuth,
     AdminGuard,
     AuthGuard,
-    GalleryService, TrackService,
+    GalleryService,
     LiveChatService, UploadService, 
     UserService, VisualizerService,
   ],

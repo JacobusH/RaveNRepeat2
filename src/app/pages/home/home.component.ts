@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
-import { TrackService } from 'app/services/_index';
 import { Track } from 'app/models/_index';
 import { Observable } from 'rxjs';
 
@@ -13,7 +12,7 @@ import { Observable } from 'rxjs';
 export class HomeComponent implements OnInit {
   searchedArtist: string;
 
-  constructor(private trackService: TrackService) { 
+  constructor() { 
     
   }
 
@@ -21,8 +20,5 @@ export class HomeComponent implements OnInit {
     
   }
 
-  onValueSearched($event) {
-    this.searchedArtist = $event;
-  }
 
 }

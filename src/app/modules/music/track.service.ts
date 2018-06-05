@@ -15,8 +15,8 @@ export class TrackService {
   }
 
   get(artist: string): AngularFirestoreCollection<Track> {
-    console.log('in get')
     return this.afs.collection(artist);
+    // return this.afs.collection(artist);
   }
 
   createNew(): Track {

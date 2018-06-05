@@ -2,6 +2,7 @@ import { NgModule, ApplicationRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'app/modules/shared/shared.module';
+import { MusicModule } from 'app/modules/music/music.module';
 
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
@@ -21,13 +22,14 @@ import { BackpackingComponent } from './backpacking/backpacking.component';
 @NgModule({
   imports: [
     routing,
+    MusicModule,
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
     CommonModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCUXVv45TIEeHtxkDIEy5ZEFsjmKKnAXiI',
+      apiKey: 'AIzaSyAPnNOzeRaEkOsYhruEHno67C1CwUlgT7s',
       libraries: ["places"]
     }),
     AgmSnazzyInfoWindowModule,

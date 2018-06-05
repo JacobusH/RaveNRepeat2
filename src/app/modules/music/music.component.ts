@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
-import { TrackService } from 'app/services/_index';
+import { TrackService } from './track.service';
 import { Track } from 'app/models/_index';
 import { Observable } from 'rxjs';
 

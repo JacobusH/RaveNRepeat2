@@ -9,6 +9,8 @@ import { ViewArtistComponent } from './view-artist/view-artist.component';
 import { ViewTrackComponent } from './view-track/view-track.component';
 import { ViewTracklistComponent } from './view-tracklist/view-tracklist.component';
 
+import { TrackService } from './track.service';
+
 // Routing
 import { routing } from './music.routing';
 
@@ -29,11 +31,15 @@ import { routing } from './music.routing';
     , ViewTracklistComponent  
   ],
   exports: [
+    TypeAheadComponent,
     MusicComponent
     , RatingComponent
     , ViewArtistComponent
     , ViewTrackComponent
     , ViewTracklistComponent  
+  ],
+  providers: [
+    TrackService
   ]
 })
 export class MusicModule { }
