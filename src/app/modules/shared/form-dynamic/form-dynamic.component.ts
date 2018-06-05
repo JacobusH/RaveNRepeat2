@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class FormDynamicComponent implements OnInit {
   @Input('dataObject') dataObject;
+  @Output('onSave') onSave: EventEmitter<any> = new EventEmitter<any>();
   objectProps;
   form: FormGroup;
 
@@ -49,6 +50,7 @@ export class FormDynamicComponent implements OnInit {
 
   onSubmit(form) {
     console.log(form);
+    this.onSave.emit(form);
   }
 
 

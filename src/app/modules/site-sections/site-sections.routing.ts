@@ -1,9 +1,10 @@
 // import { AuthenticationComponent } from './authentication.component';
+import { Routes, RouterModule } from '@angular/router';
+import { ModuleWithProviders } from '@angular/core';
+
 import { HotComponent } from './hot/hot.component';
 import { NewComponent } from './new/new.component';
 import { FavoriteComponent } from './favorite/favorite.component';
-import { Routes, RouterModule } from '@angular/router';
-import { ModuleWithProviders } from '@angular/core';
 
 export const routes: Routes = [
   // { path: '', component: LoginComponent }, // default route of the module

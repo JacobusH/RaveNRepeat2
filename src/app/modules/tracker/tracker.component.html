@@ -1,17 +1,18 @@
-<h1>{{ title }}</h1>
+<div class="child-nav">
+  <div class="arrow-up"></div>
+    <nav>
+      <a [routerLink]="['beer']">Beer</a>
+      <a [routerLink]="['food']">Food</a>
+      <a [routerLink]="['music']">Music</a>
+      <a [routerLink]="['workout']">Workout</a>
+    </nav>
+</div>
+<router-outlet></router-outlet>
+<!--CHILD ROUTES HERE -->
 
-<!-- this creates a google map on the page with the given lat/lng from -->
-<!-- the component as the initial center of the map: -->
-<agm-map [latitude]="lat" [longitude]="lng" >
-  <agm-snazzy-info-window [isOpen]="true" [latitude]="lat" [longitude]="lng" [closeWhenOthersOpen]="true">
-    <ng-template>
-      My first Snazzy Info Window!
-    </ng-template>
-  </agm-snazzy-info-window>
-</agm-map>
 
 <!-- <app-form-dynamic [dataObject]="person"></app-form-dynamic> -->
-<app-form-dynamic [dataObject]="trackerItem"></app-form-dynamic>
+<!-- <app-form-dynamic [dataObject]="trackerItem"></app-form-dynamic> -->
 
 <!-- <agm-circle 
     [latitude]="lat" 

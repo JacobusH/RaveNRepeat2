@@ -32,3 +32,38 @@
   border-image: radient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 21 30 30 21 repeat repeat;
 
 }
+
+.child-nav {
+  margin-bottom:15px; 
+
+  nav {
+    width:85%;
+    background-color: #1a1a1a;
+    border: 1px solid black;
+    border-top: none;
+    border-radius: 5px;
+    font-family: 'Abril Fatface', cursive;
+    color: #fff;
+    display: flex;
+    justify-content: space-evenly;
+    padding:5px;
+    margin:0 auto;
+  
+    a {
+        color: #fff;
+        width:100%;
+        text-align:center;
+        text-decoration: none;
+    }
+  }
+
+  .arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #1a1a1a;
+    display:flex;
+    margin:0 auto;
+  }
+}
