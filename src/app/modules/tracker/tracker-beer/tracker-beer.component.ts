@@ -9,6 +9,8 @@ import { TrackerBeer, trackerBeerDyn } from './tracker-beer.model';
 })
 export class TrackerBeerComponent implements OnInit {
   trackerBeerDyn;
+  currentLat;
+  currentLong;
 
   constructor() { 
     this.trackerBeerDyn = trackerBeerDyn;
@@ -16,6 +18,7 @@ export class TrackerBeerComponent implements OnInit {
 
   ngOnInit() {
   }
+
 
   onSave(formJSON: JSON) {
     console.log("BEER", formJSON);

@@ -21,14 +21,6 @@ export const trackerBeerDyn = {
       required: true
     }
   },
-  locationPoint: {
-    label: 'Map Location',
-    value: 'Where are you really?',
-    type: 'text',
-    validation: {
-      required: true
-    }
-  },
   beerName: {
     label: 'Beer Name',
     value: 'What beer did you drink?',
@@ -48,7 +40,7 @@ export const trackerBeerDyn = {
   notes: {
     label: 'Notes',
     value: 'Any thoughts on this beer?',
-    type: 'text',
+    type: 'textarea',
     validation: {
       required: false
     }
@@ -61,7 +53,23 @@ export const trackerBeerDyn = {
     validation: {
       required: true
     }
-  }
+  },
+  locationLat: {
+    label: 'Latitude',
+    type: 'text',
+    value: '',
+    validation: {
+      required: false
+    }
+  },
+  locationLong: {
+    label: 'Longitude',
+    type: 'text',
+    value: '',
+    validation: {
+      required: false
+    }
+  },
 }
 
 // export const person = {

@@ -1,6 +1,6 @@
 import { NgModule, ApplicationRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'app/modules/shared/shared.module';
 
 import { AgmCoreModule } from '@agm/core';
@@ -21,11 +21,14 @@ import { BackpackingComponent } from './backpacking/backpacking.component';
 @NgModule({
   imports: [
     routing,
+    FormsModule,
+    ReactiveFormsModule,
     SharedModule,
     CommonModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCUXVv45TIEeHtxkDIEy5ZEFsjmKKnAXiI'
+      apiKey: 'AIzaSyCUXVv45TIEeHtxkDIEy5ZEFsjmKKnAXiI',
+      libraries: ["places"]
     }),
     AgmSnazzyInfoWindowModule,
   ],
