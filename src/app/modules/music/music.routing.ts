@@ -7,7 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 
 export const routes: Routes = [
-  { path: 'music', component: MusicComponent, data: { state: 'music' }},
+  { path: 'all', component: MusicComponent, data: { state: 'music' }},
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forChild(routes);

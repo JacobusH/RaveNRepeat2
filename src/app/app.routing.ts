@@ -7,10 +7,10 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { state: 'home' }},
   // { path: 'playground', component: PlaygroundComponent,data: { state: 'playground' }},
   { path: 'playground', loadChildren: './modules/playground/playground.module#PlaygroundModule', data: { state: 'playground' }},
-  { path: 'login', loadChildren: './modules/authentication/authentication.module#AuthenticationModule', data: { state: 'login' }},
+  // { path: 'login', loadChildren: './modules/authentication/authentication.module#AuthenticationModule', data: { state: 'login' }},
   { path: 'profile', loadChildren: './modules/user-profile/user-profile.module#UserProfileModule', data: { state: 'profile' }},
   { path: 'music', loadChildren: './modules/music/music.module#MusicModule', data: { state: 'music' }},
-  { path: 'tracker', loadChildren: './modules/tracker/tracker.module#TrackerModule', data: { state: 'tracker' }},
+  // { path: 'tracker', loadChildren: './modules/tracker/tracker.module#TrackerModule', data: { state: 'tracker' }},
   // { path: 'sections', loadChildren: './modules/user-profile/user-profile.module#UserProfileModule', data: { state: 'sections' }},
 ];
 

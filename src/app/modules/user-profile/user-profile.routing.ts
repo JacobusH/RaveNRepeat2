@@ -5,7 +5,11 @@ import { ModuleWithProviders } from '@angular/core';
 
 export const routes: Routes = [
   // { path: '', component: LoginComponent }, // default route of the module
-  { path: 'profile', component: ProfileComponent, data: { state: 'profile' }}
+  { path: '', component: ProfileComponent, data: { state: 'profile' }, 
+  children: [
+    { path: '', redirectTo: 'profile', pathMatch: 'full' },
+    { path: 'tracker', loadChildren: '../tracker/tracker.module#TrackerModule', data: { state: 'tracker' }},
+  ]}
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forChild(routes);

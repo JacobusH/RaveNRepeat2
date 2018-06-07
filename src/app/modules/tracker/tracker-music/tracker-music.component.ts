@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { TrackService } from '../../music/track.service';
 
 @Component({
   selector: 'app-tracker-music',
@@ -7,10 +8,18 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.Emulated
 })
 export class TrackerMusicComponent implements OnInit {
+  searchedArtist: string;
 
-  constructor() { }
+  constructor(private trackService: TrackService) { 
+    
+  }
 
   ngOnInit() {
+    
+  }
+
+  onValueSearched($event) {
+    this.searchedArtist = $event;
   }
 
 }
