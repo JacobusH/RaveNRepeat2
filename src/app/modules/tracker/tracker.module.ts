@@ -1,8 +1,8 @@
 import { NgModule, ApplicationRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SharedModule } from 'app/modules/shared/shared.module';
-import { MusicModule } from 'app/modules/music/music.module';
+import { SharedModule } from '../shared/shared.module';
+import { MusicModule } from '../music/music.module';
 
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
@@ -22,12 +22,11 @@ import { BackpackingComponent } from './backpacking/backpacking.component';
 @NgModule({
   imports: [
     routing,
-    MusicModule,
-    FormsModule,
-    ReactiveFormsModule,
-    SharedModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
+    MusicModule,
+    SharedModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAPnNOzeRaEkOsYhruEHno67C1CwUlgT7s',
       libraries: ["places"]
@@ -37,6 +36,10 @@ import { BackpackingComponent } from './backpacking/backpacking.component';
   exports: [
     TrackerComponent
   ],
-  declarations: [TrackerComponent, TrackerBeerComponent, TrackerWorkoutComponent, TrackerFoodComponent, TrackerMusicComponent, TrackerMapComponent, BackpackingComponent]
+  declarations: [TrackerComponent, 
+    TrackerBeerComponent, TrackerWorkoutComponent, 
+    TrackerFoodComponent, TrackerMusicComponent, 
+    TrackerMapComponent, BackpackingComponent
+  ]
 })
 export class TrackerModule { }

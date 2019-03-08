@@ -1,13 +1,13 @@
 // My Modules
 import './shared/rxjs-operator';
 import { AuthenticationModule } from './modules/authentication/authentication.module';
-import { MusicModule } from './modules/music/music.module';
-import { UserProfileModule } from './modules/user-profile/user-profile.module';
-import { SitePlansModule } from './modules/site-plans/site-plans.module';
-import { SiteSectionsModule } from './modules/site-sections/site-sections.module';
+// import { MusicModule } from './modules/music/music.module';
+// import { UserProfileModule } from './modules/user-profile/user-profile.module';
+// import { SitePlansModule } from './modules/site-plans/site-plans.module';
+// import { SiteSectionsModule } from './modules/site-sections/site-sections.module';
 import { PlaygroundModule } from './modules/playground/playground.module';
-import { SharedModule } from './modules/shared/shared.module';
-import { TrackerModule } from './modules/tracker/tracker.module';
+// import { SharedModule } from './modules/shared/shared.module';
+// import { TrackerModule } from './modules/tracker/tracker.module';
 // Modules
 import { AlertModule, BsDropdownModule } from 'ngx-bootstrap';
 import { AngularFireModule } from 'angularfire2';
@@ -93,12 +93,12 @@ var firebaseConfig = {
     routing,
     // TrackerModule,
     AuthenticationModule,
-    MusicModule,
-    UserProfileModule,
-    SitePlansModule,
-    SiteSectionsModule,
-    PlaygroundModule,
-    SharedModule,
+    // MusicModule,
+    // UserProfileModule,
+    // SitePlansModule,
+    // SiteSectionsModule,
+    // PlaygroundModule,
+    // SharedModule,
     // AlertModule.forRoot(),
     AngularFireModule,
     AngularFirestoreModule,

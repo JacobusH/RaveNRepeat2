@@ -1,3 +1,5 @@
+
+import {map, switchMap} from 'rxjs/operators';
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
@@ -21,13 +23,13 @@ export class AuthService {
     private router: Router) { 
       // this.authstate = this.afAuth.authState;
 
-      this.user = this.afAuth.authState.switchMap(user => {
+      this.user = this.afAuth.authState.pipe(switchMap(user => {
         if (user) {
           return this.afs.doc<User>(`!Users/${user.uid}`).valueChanges();
         } else {
           return Observable.of(null)
         }
-      })
+      }))
     }
 
     emailLogin(username, pass) {
@@ -79,7 +81,7 @@ export class AuthService {
       } 
 
       const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${userAuthCreds.uid}`);
-      userRef.snapshotChanges().map(action => action.payload.exists)
+      userRef.snapshotChanges().pipe(map(action => action.payload.exists))
         .subscribe(exists => exists 
           ? console.log('user exists')//userRef.update(data)
           : userRef.set(data))

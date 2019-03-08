@@ -16,10 +16,10 @@ import { routing } from './music.routing';
 
 @NgModule({
   imports: [
+    routing,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    routing,
     NgbRatingModule.forRoot()
   ],
   declarations: [

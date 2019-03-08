@@ -1,12 +1,13 @@
+
+import {tap,  map, filter, scan, take } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { UserService } from 'app/services/_index';
 import { AuthService } from 'app/modules/authentication/auth.service';
 import { User } from 'app/models/_index';
 import { Observable } from 'rxjs';
-import { map, filter, scan, take } from 'rxjs/operators';
-import 'rxjs/add/operator/take'; 
-import 'rxjs/add/operator/do'; 
+ 
+ 
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 
 
@@ -19,14 +20,14 @@ export class AdminGuard implements CanActivate {
 
   canActivate(): Observable<boolean> | boolean {
     // ROLE BASED CHECK
-    return this.auth.user.take(1)
-      .map(user => _.has(_.get(user, 'roles'), 'admin'))
-      .do(authorized => {
+    return this.auth.user.pipe(take(1),
+      map(user => _.has(_.get(user, 'roles'), 'admin')),
+      tap(authorized => {
         if(!authorized)   {
           console.log('access denied')
           this.router.navigate(['/login']);
         }
-      })
+      }),)
   }
 
   // BASIC CHECK FOR IS LOGGED IN

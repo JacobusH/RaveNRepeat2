@@ -1,3 +1,5 @@
+
+import {tap, map, take} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { UserService } from 'app/services/_index';
@@ -16,14 +18,14 @@ export class AuthGuard implements CanActivate {
 
   canActivate(): Observable<boolean> | boolean {
     // ROLE BASED CHECK
-    return this.auth.user.take(1)
-      .map(user => _.has(_.get(user, 'roles'), 'admin'))
-      .do(authorized => {
+    return this.auth.user.pipe(take(1),
+      map(user => _.has(_.get(user, 'roles'), 'admin')),
+      tap(authorized => {
         if(!authorized)   {
           console.log('access denied')
           this.router.navigate(['/login']);
         }
-      })
+      }),)
   }
 
   // BASIC CHECK FOR IS LOGGED IN

@@ -2,6 +2,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
+// import { TrackerModule } from '../../modules/tracker/tracker.module';
 
 // Components
 import { ProfileComponent } from './profile/profile.component';
@@ -12,14 +14,14 @@ import { VideoPlaylistComponent } from '../shared/videos/video-playlist/video-pl
 
 // Routing
 import { routing } from './user-profile.routing';
-import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
+    routing,
     CommonModule,
     SharedModule,
-    routing,
     FormsModule,
+    // TrackerModule,
   ],
   declarations: [
     ProfileComponent,
